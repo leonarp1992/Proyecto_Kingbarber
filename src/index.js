@@ -10,7 +10,7 @@ ReactDOM.render(
     <Router>
       <Routes>
         <Route exact path="/" element={<App />}/>
-        <Route path="/index" element={<App2 />}/>
+        <Route path="/quienessomos" element={<App2 />}/>
       </Routes>
     </Router>
   </React.StrictMode>,
