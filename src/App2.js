@@ -1,5 +1,5 @@
-import {Link} from 'react-router-dom';
-function App() {
+
+function App2() {
   return (
   <div>
     <main className="flex-shrink-0">
@@ -10,8 +10,8 @@ function App() {
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                      <li className="nav-item"><Link to="/index" className="nav-link">Home</Link></li>
-                      <Link to="/index"><li className="nav-item"><a className="nav-link" href="about.html">¿Quiénes Somos?</a></li></Link>
+                      <li className="nav-item"><a className="nav-link" href="index.html">Home</a></li>
+                      <li className="nav-item"><a className="nav-link" href="about.html">¿Quiénes Somos?</a></li>
                       <li className="nav-item"><a className="nav-link" href="contact.html">Servicios</a></li>
                       <li className="nav-item"><a className="nav-link" href="pricing.html">Agenda Tu Cita</a></li>
                       <li className="nav-item"><a className="nav-link" href="faq.html">Inicia Sesión</a></li>
@@ -81,4 +81,4 @@ function App() {
   </div>
   );
 }
-export default App;
+export default App2;
