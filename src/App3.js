@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-function App2() {
+function App3() {
   return (
   <div>
     <main className="flex-shrink-0">
@@ -30,50 +30,47 @@ function App2() {
             </nav>
             {/*<!-- Header-->*/}
             <header className="bg-dark">
-                <img src={process.env.PUBLIC_URL + "/img/quienessomos.jpg"} alt="" width="100%"/>
+                <img src={process.env.PUBLIC_URL + "/img/servicios.jpg"} alt="" width="100%"/>
             </header>
             {/*<!-- Features section-->*/}
             <section className="py-2" id="features">
                 <div className="container px-5 my-10">
-                    <div className="py-2 text-center">
-                        <div className="container px-5 my-5">
-                            <div className="row gx-5 justify-content-center">
-                                <div className="col-lg-10 col-xl-7">
-                                    <div className="text-center">
-                                        <div className="fs-5 mb-4 fst-italic">En King Barber contamos con 10 años de experiencia prestando los mejores servicios para caballeros,  enfocados en mejorar el estilo de cada uno de nuestros clientes.
-                                            Mezclamos un estilo old school con los nuevos estilos, logrando así una experiencia única y auténtica, como lo eres tú.
-                                            Ofrecemos un menú de servicios para hombre que incluye corte, afeitada con toalla caliente, coloración, masajes, tratamientos faciales, depilación con cera, manicure y pedicure, entre otros.
-                                            Nuestra obsesión es brindar un servicio destacado al cliente, por eso el nivel y energía de nuestro staff son fundamentales para lograr el objetivo principal... ¡tu entera satisfacción!.
-                                        </div>
-                                        <div className="fs-5 mb-4 fst-italic">¡Bienvenidos a King Barber !
-                                        </div>
-                                        <div className="py-1 text-center">
-                                            <img src={process.env.PUBLIC_URL + "/img/bigotes.png"} alt="" width="150"/>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div className="fs-10 py-2 text-center">
+                        <img src={process.env.PUBLIC_URL + "img/corbatin.jpg"} alt=""/>
+                    </div>
+                    <div className="text-center mb-5">
+                        <h2 className="fw-bolder">Nuestros Servicios</h2>
+                    </div>
+                    <div className="row justify-content-center text-center">
+                        <div className="col-lg-4">
+                            <div className="position-relative mb-5">
+                                <img className="img-fluid rounded-3 mb-3" src={process.env.PUBLIC_URL + "img/cortecabello.jpg"} alt="..." width="200"/><br/>
+                                <p className="fw-bolder">Corte de cabello</p>
                             </div>
                         </div>
-                    </div>
-                    <div className="map-responsive ">
-                        {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1443.465999710763!2d-75.57452931883267!3d6.196158054513901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8d9881ad31bfbf97!2sKing%20Barber!5e0!3m2!1ses!2sco!4v1638055903695!5m2!1ses!2sco"  width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> */}
-                    </div>
-
-                    <div className="row text-center">
-                        <div className="col mb-5 h-100">
-                            <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i className="bi bi-geo-alt"></i></div>
-                            <h2 className="h5">EL PROBLADO</h2>
-                            <p className="mb-0">Centro Comercial Santafé / Carrera 43a, Calle 7 Sur - 170 / Local 1-120</p>
+                        <div className="col-lg-4">
+                            <div className="position-relative mb-5">
+                                <img className="img-fluid rounded-3 mb-3" src={process.env.PUBLIC_URL + "img/diseñobarba.jpg"} alt="..." width="200" height="200"/><br/>
+                                <p className="fw-bolder">Diseño de barba</p>
+                            </div>
                         </div>
-                        <div className="col mb-5 h-100">
-                            <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i className="bi bi-telephone"></i></div>
-                            <h2 className="h5">TELÉFONO</h2>
-                            <p className="mb-0">3009000800</p>
+                        <div className="col-lg-4">
+                            <div className="position-relative mb-5">
+                                <img className="img-fluid rounded-3 mb-3" src={process.env.PUBLIC_URL + "img/tintecabello.jpg"} alt="..." width="200" height="200"/><br/>
+                                <p className="fw-bolder">Tinte para cabello</p>
+                            </div>
                         </div>
-                        <div className="col mb-5 h-100">
-                            <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i className="bi bi-envelope"></i></div>
-                            <h2 className="h5">CORREO</h2>
-                            <p className="mb-0">king_barber@barbershop.com</p>
+                        <div className="col-lg-4">
+                            <div className="position-relative mb-5">
+                                <img className="img-fluid rounded-3 mb-3" src= {process.env.PUBLIC_URL + "img/manicure.jpg"} alt="..." width="200"/><br/>
+                                <p className="fw-bolder">Manicure y pedicure</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4">
+                            <div className="position-relative mb-5">
+                                <img className="img-fluid rounded-3 mb-3" src={process.env.PUBLIC_URL + "img/mascarilla.jpg"} alt="..." width="200"/><br/>
+                                <p className="fw-bolder">Limpieza facial, nariz y oidos</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,4 +98,4 @@ function App2() {
   </div>
   );
 }
-export default App2;
+export default App3;

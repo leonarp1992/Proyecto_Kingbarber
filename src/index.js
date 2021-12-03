@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import App2 from './App2';
+import App3 from './App3';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
@@ -11,6 +12,7 @@ ReactDOM.render(
       <Routes>
         <Route exact path="/" element={<App />}/>
         <Route path="/quienessomos" element={<App2 />}/>
+        <Route path="/servicios" element={<App3 />}/>
       </Routes>
     </Router>
   </React.StrictMode>,
