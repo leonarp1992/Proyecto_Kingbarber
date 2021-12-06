@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import QuienesSomos from './Quienessomos';
 import Servicios from './Servicios';
-import ReservasUi from './Reservas_ui';
+import ReservasUi from './ReservasUi';
 import AgendaUa from './AgendaUa';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';

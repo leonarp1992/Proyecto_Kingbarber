@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-function Empleados_ua() {
+function EmpleadosUa() {
   return (
   <div>
     <main className="flex-shrink-0">
@@ -20,28 +20,28 @@ function Empleados_ua() {
                                 <li><Link to="" className="dropdown-item" >Reportes</Link></li>
                             </ul>
                         </li>
-                        <li className="nav-item"><a className="nav-link" href="">Cerrar Sesión</Ña></li>
+                        <li className="nav-item"><Link to='reservasui' class="nav-link" alt="">Inicia Sesión</Link></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <section>
-                <div className="panel-body" style="margin: 5%;" >
+                <div className="panel-body" style={{margin: '5%'}} >
                     <div className="d-flex justify-content-center fw-bolder"><h3>Personal Barbería</h3></div>
                     <div className="table-responsive">
-                        <table className="table table-sm-responsive" style="color: black; width:100%; align-content: center;" >
-                            <thead style=" background-color:#343a40;  color:white;">
+                        <table className="table table-sm-responsive" style={{color:'black', width:'100%', alignContent:'center'}}>
+                            <thead style={{backgroundColor:'#343a40', color:'white'}}>
                                 <tr>
                                     <th>DOCUMENTO</th>
                                     <th>NOMBRES</th>
                                     <th>APELLIDOS</th>
                                     <th>CARGO</th>
-                                    <th colspan="2" style="text-align: center;">FUNCIONES</th>   
+                                    <th colspan="2" style={{textAlign:'center'}}>FUNCIONES</th>   
                                     <th>CELULAR</th>
                                     <th></th>                                                         
                                 </tr>
                             </thead>
-                            <tbody style="background-color: #C4C4C4;">
+                            <tbody style={{backgroundColor:'#C4C4C4'}}>
                                 <tr>
                                     <td>CC: 2312344473</td>
                                     <td>Alejandra</td>
@@ -145,8 +145,8 @@ function Empleados_ua() {
                     </div>
                     <div className="d-flex justify-content-center fw-bolder"><h3>Agregar empleado</h3></div>
                     <div className="table-responsive">
-                        <table className="table table-sm-responsive" style="color: black; width:100%; align-content: center;" >
-                            <thead style=" background-color:#343a40;  color:white;">
+                        <table className="table table-sm-responsive" style={{color:'black', width:'100%', alignContent:'center'}}>
+                            <thead style={{backgroundColor:'#343a40', color:'white'}}>
                                 <tr>                                            
                                     <th>DOCUMENTO</th>
                                     <th>NOMBRES</th>
@@ -157,7 +157,7 @@ function Empleados_ua() {
                                     <th></th>                                                         
                                 </tr>
                             </thead>
-                            <tbody style="background-color:#C4C4C4">
+                            <tbody style={{backgroundColor:'#C4C4C4'}}>
                                 <tr>
                                     <td>CC:1030402942</td>
                                     <td>Jorge</td>
@@ -204,4 +204,4 @@ function Empleados_ua() {
     </div>
     );
 }
-export default Empleados_ua;
+export default EmpleadosUa;

@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-function Servicios_ua() {
+function ServiciosUa() {
   return (
   <div>
     <main className="flex-shrink-0">
@@ -20,7 +20,7 @@ function Servicios_ua() {
                                 <li><Link to="" className="dropdown-item" >Reportes</Link></li>
                             </ul>
                         </li>
-                        <li className="nav-item"><a className="nav-link" href="">Cerrar Sesión</a></li>
+                        <li className="nav-item"><Link to='/' class="nav-link" alt="">Cerrar Sesión</Link></li>
                     </ul>
                 </div>
             </div>
@@ -152,5 +152,5 @@ function Servicios_ua() {
     </div>
     );
 }
-export default Servicios_ua;
+export default ServiciosUa;
     

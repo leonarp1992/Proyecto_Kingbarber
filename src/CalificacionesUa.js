@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-function Calificaciones_ua() {
+function CalificacionesUa() {
   return (
   <div>
     <main className="flex-shrink-0">
@@ -20,7 +20,7 @@ function Calificaciones_ua() {
                                 <li><Link to="" className="dropdown-item" >Reportes</Link></li>
                             </ul>
                         </li>
-                        <li className="nav-item"><a className="nav-link" href="">Cerrar Sesión</a></li>
+                        <li className="nav-item"><Link to='/' class="nav-link" alt="">Cerrar Sesión</Link></li>
                     </ul>
                 </div>
             </div>
@@ -152,4 +152,4 @@ function Calificaciones_ua() {
   </div>
   );
 }
-export default Calificaciones_ua;
+export default CalificacionesUa;

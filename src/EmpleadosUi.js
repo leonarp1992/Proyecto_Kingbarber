@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-function Empleados_ui() {
+function EmpleadosUi() {
   return (
   <div>
     <main className="flex-shrink-0">
@@ -29,11 +29,11 @@ function Empleados_ui() {
             </nav>
             {/*<!-- Features section-->*/}
             <section>
-                <div className="panel-body" style="margin: 5%;" >
-                    <div className="d-flex justify-content-center" style="color:white;"><h3>PERSONAL BARBERÍA</h3></div>
+                <div className="panel-body" style={{margin: '5%'}} >
+                    <div className="d-flex justify-content-center" style={{color: 'white'}}><h3>PERSONAL BARBERÍA</h3></div>
                     <div className="table-responsive">
-                        <table class="table table-sm-responsive" style="color: black; width:100%; align-content: center;" >
-                            <thead style=" background-color:#C4C4C4;">
+                        <table class="table table-sm-responsive" style={{color:'black', width:'100%', alignContent:'center'}} >
+                            <thead style={{backgroundColor:'#C4C4C4'}}>
                                 <tr>                                            
                                     <th>NOMBRES</th>
                                     <th>APELLIDOS</th>
@@ -43,7 +43,7 @@ function Empleados_ui() {
                                     <th></th>                                                         
                                 </tr>
                             </thead>
-                            <tbody style="background-color: white;">
+                            <tbody style={{backgroundColor:'white'}}>
                                 <tr>
                                     <td>Alejandra</td>
                                     <td>Negrete Urango</td>
@@ -51,7 +51,7 @@ function Empleados_ui() {
                                     <td>Manicula, Pedicura</td>
                                     <td>3001002711</td>
                                     <td>
-                                        <i class="bi bi-pencil-square"></i> <i class="bi bi-trash-fill"></i>
+                                        <i className="bi bi-pencil-square"></i> <i className="bi bi-trash-fill"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -60,7 +60,7 @@ function Empleados_ui() {
                                     <td>Barbero</td>
                                     <td>Corte/diseño de cabello/barba</td>
                                     <td>3125359893</td>
-                                    <td><i class="bi bi-pencil-square"></i> <i class="bi bi-trash-fill"></i></td>
+                                    <td><i className="bi bi-pencil-square"></i> <i className="bi bi-trash-fill"></i></td>
                                 </tr>
                                 <tr>
                                     <td>Jorge Luis</td>
@@ -68,7 +68,7 @@ function Empleados_ui() {
                                     <td>Barbero</td>
                                     <td>Corte/diseño de cabello/barba</td>
                                     <td>3123424443</td>
-                                    <td><i class="bi bi-pencil-square"></i> <i class="bi bi-trash-fill"></i></td>
+                                    <td><i className="bi bi-pencil-square"></i> <i className="bi bi-trash-fill"></i></td>
                                 </tr>
                                 <tr>
                                     <td>Yorly Roxanna</td>
@@ -76,15 +76,14 @@ function Empleados_ui() {
                                     <td>Estilista</td>
                                     <td>Tinte, diseño cejas</td>
                                     <td>3007001624</td>
-                                    <td><i class="bi bi-pencil-square"></i> <i class="bi bi-trash-fill"></i></td>
+                                    <td><i className="bi bi-pencil-square"></i> <i className="bi bi-trash-fill"></i></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="d-flex justify-content-center" style="color:white;"><h3>AGREGAR EMPLEADO</h3></div>
-                    <div class="table-responsive">
-                        <table class="table table-sm-responsive" style="color: black; width:100%; align-content: center;" >
-                            <thead style=" background-color:#C4C4C4;">
+                    <div className="table-responsive">
+                        <table className="table table-sm-responsive" style={{color:'black', width:'100%', alignContent:'center'}} >
+                            <thead style={{backgroundColor:'#C4C4C4'}}>
                                 <tr>                                            
                                     <th>NOMBRES</th>
                                     <th>APELLIDOS</th>
@@ -94,7 +93,7 @@ function Empleados_ui() {
                                     <th></th>                                                         
                                 </tr>
                             </thead>
-                            <tbody style="background-color: white;">
+                            <tbody style={{backgroundColor:'white'}}>
                                 <tr>
                                     <td>Jorge</td>
                                     <td>Benavides</td>
@@ -102,10 +101,9 @@ function Empleados_ui() {
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <i class="bi bi-pencil-square"></i> <i class="bi bi-trash-fill"></i>
+                                        <i className="bi bi-pencil-square"></i> <i class="bi bi-trash-fill"></i>
                                     </td>
-                                </tr>
-                                
+                                </tr>                                
                             </tbody>
                         </table>
                     </div>
@@ -134,4 +132,4 @@ function Empleados_ui() {
   </div>
   );
 }
-export default Empleados_ui;
+export default EmpleadosUi;
