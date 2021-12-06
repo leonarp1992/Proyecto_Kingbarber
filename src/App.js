@@ -13,8 +13,17 @@ function App() {
                       <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
                       <li className="nav-item"><Link to="/quienessomos" className="nav-link">¿Quiénes Somos?</Link></li>                        
                       <li className="nav-item"><Link to= "/servicios" className="nav-link">Servicios</Link></li>
-                      <li className="nav-item"><Link to="/" className="nav-link">Agenda Tu Cita</Link></li>
-                      <li className="nav-item"><Link to="/" className="nav-link" >Inicia Sesión</Link></li>
+                      <li className="nav-item dropdown">
+                                <li className="nav-link dropdown-toggle" id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">Agenda Tu Cita</li>
+                                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><Link to="/" className="dropdown-item" >Corte de cabello</Link></li>
+                                    <li><Link to="/" className="dropdown-item" >Diseño de barba</Link></li>
+                                    <li><Link to="/" className="dropdown-item" >Coloración de cabello o barba</Link></li>
+                                    <li><Link to="/" className="dropdown-item" >Manicure y pedicure</Link></li>
+                                    <li><Link to="/" className="dropdown-item" >Limpieza facial, nariz y oido</Link></li>
+                                </ul>
+                            </li>
+                      <li className="nav-item"><Link to="/reservasui" className="nav-link" >Inicia Sesión</Link></li>
                   </ul>
               </div>
           </div>
