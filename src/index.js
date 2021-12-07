@@ -5,6 +5,8 @@ import QuienesSomos from './Quienessomos';
 import Servicios from './Servicios';
 import ReservasUi from './ReservasUi';
 import AgendaUa from './AgendaUa';
+import Login from './Login';
+import Registro from './Registro';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
@@ -17,6 +19,8 @@ ReactDOM.render(
         <Route path="/servicios" element={<Servicios />}/>
         <Route path="/reservasui" element={<ReservasUi />}/>
         <Route path="/agendaua" element={<AgendaUa />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/registro" element={<Registro />}/>
 
 
       </Routes>
