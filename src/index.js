@@ -21,8 +21,6 @@ ReactDOM.render(
         <Route path="/agendaua" element={<AgendaUa />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/registro" element={<Registro />}/>
-
-
       </Routes>
     </Router>
   </React.StrictMode>,
