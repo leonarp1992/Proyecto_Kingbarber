@@ -26,11 +26,11 @@ function ServiciosUa() {
             </div>
         </nav>
         <section>
-                <div className="panel-body" style="margin: 5%;">
+                <div className="panel-body" style={{margin: '5%'}}>
                     <div className="d-flex justify-content-center fw-bolder"><h3>Servicios</h3></div>
                     <div className="table-responsive">
-                        <table className="table" style="color: black; align-content: center; width: 100%;" >
-                            <thead style=" background-color:#343a40;  color:white;">
+                        <table className="table" style={{color:'black', width:'100%', alignContent:'center'}} >
+                            <thead style={{backgroundColor:'#343a40', color:'white'}}>
                                 <tr>                                            
                                     <th>ID</th>
                                     <th>SERVICIO</th>
@@ -40,7 +40,7 @@ function ServiciosUa() {
                                     <th></th>                                                         
                                 </tr>
                             </thead>
-                            <tbody style="background-color: #C4C4C4;">
+                            <tbody style={{backgroundColor:'#C4C4C4'}}>
                                 <tr>
                                     <td>01</td>
                                     <td>Corte de cabello</td>
@@ -104,8 +104,8 @@ function ServiciosUa() {
                     </div>
                     <div className="d-flex justify-content-center fw-bolder"><h3>Agregar servicio</h3></div>
                     <div className="table-responsive">
-                        <table className="table table-sm-responsive" style="color: black; width:100%; align-content: center;" >
-                            <thead style=" background-color:#343a40;  color:white;">
+                        <table className="table table-sm-responsive" style={{color:'black', width:'100%', alignContent:'center'}} >
+                            <thead style={{backgroundColor:'#343a40', color:'white'}}>
                                 <tr>                                            
                                     <th>ID</th>
                                     <th>SERVICIO</th>
@@ -115,7 +115,7 @@ function ServiciosUa() {
                                     <th></th>                                                         
                                 </tr>
                             </thead>
-                            <tbody style="background-color: #C4C4C4;">
+                            <tbody style={{backgroundColor:'#C4C4C4'}}>
                                 <tr>
                                     <td>01</td>
                                     <td>Corte de cabello</td>
