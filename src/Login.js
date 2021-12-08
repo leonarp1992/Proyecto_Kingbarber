@@ -34,8 +34,16 @@ class Login extends Component {
                 var respuesta = response[0];
                 cookies.set('id', respuesta.id, {path:"/"});
                 cookies.set('Nombre', respuesta.Nombre, {path:"/"});
-                alert('Bienvenido ' +  respuesta.Nombre);
-                window.location.href="./agendaua"
+                if(respuesta.tipousuario === "Administrador"){
+                    alert('Bienvenido ' +  respuesta.Nombre);
+                    window.location.href="./agendaua"
+                }else if(respuesta.tipousuario === "Interno"){
+                    alert('Bienvenido ' +  respuesta.Nombre);
+                    window.location.href="./reservasui"
+                }else if(respuesta.tipousuario === "Externo"){
+                    alert('Bienvenido ' +  respuesta.Nombre);
+                    window.location.href="./servicios"
+                }
             }else{
                 alert("El usuario o la contraseña no son correctos");
             }
