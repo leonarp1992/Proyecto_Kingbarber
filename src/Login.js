@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import md5 from 'md5';
+import Cookies from 'universal-cookie/es6';
 
-const baseurl="http://localhost:3001/usuarios";
+const baseUrl="http://localhost:3001/usuarios";
+const cookies = new Cookies();
 class Login extends Component {
 
     state={
@@ -23,12 +25,23 @@ class Login extends Component {
     }
 
     iniciarSesion=async()=>{
-        await axios.get(baseurl, {params:{username: this.state.form.username, password: md5(this.state.form.password)}})
+        await axios.get(baseUrl, {params:{usuario: this.state.form.username, contraseña: md5(this.state.form.password)}})
         .then(response=>{
-            console.log(response.data);
+            return response.data;
+        })
+        .then(response=>{
+            if(response.length>0){
+                var respuesta = response[0];
+                cookies.set('id', respuesta.id, {path:"/"});
+                cookies.set('Nombre', respuesta.Nombre, {path:"/"});
+                alert('Bienvenido ' +  respuesta.Nombre);
+                window.location.href="./agendaua"
+            }else{
+                alert("El usuario o la contraseña no son correctos");
+            }
         })
         .catch(error=>{
-            console.log(error);
+            return error;
         })
     }
 
@@ -78,7 +91,7 @@ class Login extends Component {
                                                           <i className="fas fa-key icon"></i>
                                                           <input name="password" type="password" placeholder="Contraseña" onChange={this.handleChange}/>
                                                        </div>
-                                                       <input style={{alignContent:'center'}} value="Iniciar sesión" className="button" onClick={()=>this.iniciarSesion()}/>
+                                                       <input type="button" value="Iniciar sesión" className="button" onClick={()=>this.iniciarSesion()}/>
                                                        <p>¿No tienes una cuenta? <Link to="/registro" className="link">Registrate </Link></p>
                                                    </div>
                                           </div>
