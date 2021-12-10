@@ -1,17 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import { apiServicios } from './utils/api';
 
 function AgendaUa() {
 
-    const baseUrl1="http://localhost:3001/servicios";
-    axios.get(baseUrl1)
-    .then(function(response){
-        return response.data
-    }).then(response=>{
-        var Datos = response;
-        console.log(Datos)
-    })
+    const [services, setServices] = useState([])
+
+    const init=()=>{
+        axios.get(apiServicios)
+            .then(function(response){
+                return response.data
+            }).then(response=>{
+                var datos = response;
+                setServices(datos);     
+        });
+    };
+    useEffect(init,[]); 
+
+    console.log(services);
 
     return (
     <div>
@@ -66,18 +73,22 @@ function AgendaUa() {
                                       </tr>
                                   </thead>
                                   <tbody style={{backgroundColor:'#C4C4C4'}}>
-                                      <tr>
-                                          <td></td>
-                                          <td>19:00</td>
-                                          <td>04 Corte de cabello</td>
-                                          <td>$33.000</td>
-                                          <td>Leonar Perez</td>
-                                          <td>Emanuel Macias</td>
-                                          <td>FINALIZADO</td>
-                                          <td>
-                                              <i className="bi bi-pencil-square"></i> <i className="bi bi-trash-fill"></i>
-                                          </td>
-                                      </tr>
+                                        {services.map(function(servicio) {
+                                            return (
+                                                <tr>
+                                                    <td>{servicio.Fecha}</td>
+                                                    <td>{servicio.Hora}</td>
+                                                    <td>{servicio.Nombre}</td>
+                                                    <td>${servicio.Precio}</td>
+                                                    <td>Leonar Perez</td>
+                                                    <td>Emanuel Macias</td>
+                                                    <td>FINALIZADO</td>
+                                                    <td>
+                                                        <i className="bi bi-pencil-square"></i> <i className="bi bi-trash-fill"></i>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })};
                                   </tbody>
                               </table>
                           </div>
