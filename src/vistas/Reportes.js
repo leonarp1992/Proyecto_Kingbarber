@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { apiServicios } from '../utils/api';
 
-function AgendaUa() {
+function Reportes() {
 
     const [services, setServices] = useState([])
 
@@ -42,53 +42,9 @@ function AgendaUa() {
           </nav>
   
         {/*<!-- Features section-->*/}
-        <section>
-                  <div className="panel-body" style={{margin:'5%'}}>
-                      <div className="d-flex justify-content-center fw-bolder"><h3>Agenda de servicios</h3></div>
-                      
-                      <div className="d-flex justify-content-lg-end" style={{alignItems:'center'}}>
-                          <label for="colFormLabelExample" className="col-sm-1 col-form-label fw-bolder rounded-2 d-flex justify-content-center" style={{backgroundColor:'#C4C4C4'}}>Buscar</label>
-                          <div className="col-sm-2">
-                              <input type="email" className="form-control form-control" id="colFormLabelExample" placeholder="Búsqueda"/>
-                          </div>
-                      </div>
-                      <div className="justify-content-center">
-                          <div className="table-responsive" style={{justifyContent:'center'}}>
-                              <table className="table table-responsive-xxl" style={{color:'black', width:'100%', alignContent:'center'}}>
-                                  <thead style={{backgroundColor:'#343a40', color:'white'}}>
-                                      <tr>                                            
-                                          <th>FECHA</th>
-                                          <th>HORA</th>
-                                          <th>SERVICIOS</th>
-                                          <th>PRECIO</th>
-                                          <th>EMPLEADO</th>
-                                          <th>CLIENTE</th>
-                                          <th>ESTADO</th>
-                                          <th></th>
-                                      </tr>
-                                  </thead>
-                                  <tbody style={{backgroundColor:'#C4C4C4'}}>
-                                        {services.map(function(servicio) {
-                                            return (
-                                                <tr>
-                                                    <td>{servicio.Fecha}</td>
-                                                    <td>{servicio.Hora}</td>
-                                                    <td>{servicio.Nombre}</td>
-                                                    <td>${servicio.Precio}</td>
-                                                    <td>Leonar Perez</td>
-                                                    <td>Emanuel Macias</td>
-                                                    <td>FINALIZADO</td>
-                                                    <td>
-                                                        <i className="bi bi-pencil-square"></i> <i className="bi bi-trash-fill"></i>
-                                                    </td>
-                                                </tr>
-                                            )
-                                        })};
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>                              
-                      <div className="d-flex justify-content-center fw-bolder"><h3>Reportes</h3></div>
+        <section> 
+            <div>
+            <div className="d-flex justify-content-center fw-bolder"><h3>Reportes</h3></div>
                       <div className="d-flex justify-content-lg-end" style={{alignItems:'center'}}>
                           <label for="">USUARIOS ATENDIDOS</label>
                           <div className="col-lg-2"></div>
@@ -200,73 +156,8 @@ function AgendaUa() {
                               </tbody>
                           </table>
                       </div>
-                      <div className="d-flex justify-content-lg-end" style={{alignItems:'center'}}>
-                          <label for="">AGENDA DISPONIBLE</label>
-                          <div className="col-lg-2"></div>
-                          <label for="colFormLabelExample" className="col-sm-1 col-form-label fw-bolder rounded-2 d-flex justify-content-center" style={{backgroundColor:'#C4C4C4'}}>Buscar</label>
-                          <div className="col-sm-2">
-                              <input className="form-control form-control" id="colFormLabelExample" placeholder="Búsqueda"/>
-                          </div>
-                      </div>
-                      <div className="table-responsive">
-                          <table className="table" style={{color:'black', width:'100%', alignContent:'center'}}>
-                              <thead style={{backgroundColor:'#343a40', color:'white'}}>
-                                  <tr>                                            
-                                      <th>FECHA</th>
-                                      <th>HORA</th>
-                                      <th>SERVICIOS</th>
-                                      <th>EMPLEADO</th>
-                                      <th><i className="bi bi-printer"></i></th>                                                         
-                                  </tr>
-                              </thead>
-                              <tbody style={{backgroundColor:'#C4C4C4'}}>
-                                  <tr>
-                                      <td>2021/12/04</td>
-                                      <td>14:30</td>
-                                      <td>01 corte + lavado + peinado</td>
-                                      <td>Leonar Perez</td>
-                                      <td><i className="bi bi-printer"></i></td>
-                                  </tr>
-                                  <tr>
-                                      <td>2021/12/04</td>
-                                      <td>15:00</td>
-                                      <td>01 corte + lavado + peinado</td>
-                                      <td>Leonar Perez</td>
-                                      <td><i className="bi bi-printer"></i></td>
-                                  </tr>
-                                  <tr>
-                                      <td>2021/12/04</td>
-                                      <td>15:00</td>
-                                      <td>01 corte + lavado + peinado</td>
-                                      <td>Jorge Luis Curiel</td>
-                                      <td><i className="bi bi-printer"></i></td>
-                                  </tr>
-                                  <tr>
-                                      <td>2021/12/04</td>
-                                      <td>15:30</td>
-                                      <td>01 corte + lavado + peinado</td>
-                                      <td>Leonar Perez</td>
-                                      <td><i className="bi bi-printer"></i></td>
-                                  </tr>
-                                  <tr>
-                                      <td>2021/12/04</td>
-                                      <td>15:30</td>
-                                      <td>01 corte + lavado + peinado</td>
-                                      <td>Jorge Luis Curiel</td>
-                                      <td><i className="bi bi-printer"></i></td>
-                                  </tr>
-                                  <tr>
-                                      <td>2021/12/04</td>
-                                      <td>16:00</td>
-                                      <td>01 corte + lavado + peinado</td>
-                                      <td>Leonar Perez</td>
-                                      <td><i className="bi bi-printer"></i></td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </section>
+            </div>                  
+        </section>
       </main>
       {/*<!-- Footer-->*/}
       <footer className="bg-dark py-4 mt-auto">
@@ -290,4 +181,4 @@ function AgendaUa() {
     </div>
     );
 }
-export default AgendaUa;
+export default Reportes;
