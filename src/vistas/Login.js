@@ -38,7 +38,7 @@ function Login() {
                     window.location.href="./reservasui"
                 }else if(respuesta.tipousuario === "Externo"){
                     alert('Bienvenido ' +  respuesta.Nombre);
-                    window.location.href="./servicios"
+                    window.location.href="./serviciosue"
                 }
             }else{
                 alert("El usuario o la contraseña no son correctos");

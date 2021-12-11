@@ -11,8 +11,10 @@ import CalificacionesUa from './vistas/CalificacionesUa';
 import EmpleadosUa from './vistas/EmpleadosUa';
 import ServiciosUa from './vistas/ServiciosUa';
 import Reportes from './vistas/Reportes';
+import ServiciosUe from './vistas/ServiciosUe';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -26,10 +28,10 @@ ReactDOM.render(
         <Route path="/agendaua" element={<AgendaUa />}/>
         <Route path="/calificacionesua" element={<CalificacionesUa />}/>
         <Route path="/empleadosua" element={<EmpleadosUa />}/>
-        <Route path="/servicios" element={<ServiciosUa />}/>
+        <Route path="/serviciosua" element={<ServiciosUa />}/>
         <Route path="/reportes" element={<Reportes />}/>
         <Route path="/reservasui" element={<ReservasUi />}/>
-        <Route path="/registro" element={<Registro />}/>
+        <Route path="/serviciosue" element={<ServiciosUe />}/>
       </Routes>
     </Router>
   </React.StrictMode>,
