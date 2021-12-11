@@ -9,22 +9,15 @@ function App() {
               <img src={process.env.PUBLIC_URL + "/img/logo.png"} alt="Logo" width="90"/>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                      <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-                      <li className="nav-item"><Link to="/quienessomos" className="nav-link">¿Quiénes Somos?</Link></li>                        
-                      <li className="nav-item"><Link to= "/servicios" className="nav-link">Servicios</Link></li>
-                      <li className="nav-item dropdown">
-                                <li className="nav-link dropdown-toggle" id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">Agenda Tu Cita</li>
-                                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><Link to="/" className="dropdown-item" >Corte de cabello</Link></li>
-                                    <li><Link to="/" className="dropdown-item" >Diseño de barba</Link></li>
-                                    <li><Link to="/" className="dropdown-item" >Coloración de cabello o barba</Link></li>
-                                    <li><Link to="/" className="dropdown-item" >Manicure y pedicure</Link></li>
-                                    <li><Link to="/" className="dropdown-item" >Limpieza facial, nariz y oido</Link></li>
-                                </ul>
-                            </li>
-                      <li className="nav-item"><Link to="/login" className="nav-link" >Inicia Sesión</Link></li>
-                  </ul>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
+                        <li className="nav-item"><Link to="/quienessomos" className="nav-link">¿Quiénes Somos?</Link></li>                        
+                        <li className="nav-item"><Link to= "/servicios" className="nav-link">Servicios</Link></li>
+                        <li className="nav-item"><Link to="/registro" className="nav-link" >Agenda tu cita</Link></li>
+                        <li className="nav-item"><Link to="/login" className="nav-link" >Inicia Sesión</Link></li>
+                    </ul>
+             </div>
               </div>
           </div>
       </nav>
@@ -74,7 +67,7 @@ function App() {
             <div className="row align-items-center justify-content-between flex-column flex-sm-row">
                 <div className="col-auto"><div className="small m-0 text-white">Copyright 2021 &copy; MisionTIC 2022</div></div>
                 <div className="col-auto">
-                    <a className="link-light small" href="#!"><i className="bi bi-instagram"> @barberking</i></a>
+                    <a className="link-light small" href="www.instagram.com"><i className="bi bi-instagram"> @barberking</i></a>
                     <span class="text-white mx-1">&middot;</span>
                     <a className="link-light small" href="#!"><i className="bi bi-facebook"> BarbeKing</i></a>
                     <span class="text-white mx-1">&middot;</span>

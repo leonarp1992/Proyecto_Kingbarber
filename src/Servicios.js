@@ -11,19 +11,10 @@ function Servicios() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-                            <li className="nav-item"><Link to="/quienessomos" className="nav-link">¿Quiénes Somos?</Link></li>
-                            <li className="nav-item"><Link to="/servicios" className="nav-link">Servicios</Link></li>
-                            <li className="nav-item dropdown">
-                                <li className="nav-link dropdown-toggle" id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">Agenda Tu Cita</li>
-                                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><Link to="/" className="dropdown-item" >Corte de cabello</Link></li>
-                                    <li><Link to="/" className="dropdown-item" >Diseño de barba</Link></li>
-                                    <li><Link to="/" className="dropdown-item" >Coloración de cabello o barba</Link></li>
-                                    <li><Link to="/" className="dropdown-item" >Manicure y pedicure</Link></li>
-                                    <li><Link to="/" className="dropdown-item" >Limpieza facial, nariz y oido</Link></li>
-                                </ul>
-                            </li>
-                            <li className="nav-item"><Link to='reservasui' class="nav-link" alt="">Inicia Sesión</Link></li>
+                            <li className="nav-item"><Link to="/quienessomos" className="nav-link">¿Quiénes Somos?</Link></li>                        
+                            <li className="nav-item"><Link to= "/servicios" className="nav-link">Servicios</Link></li>
+                            <li className="nav-item"><Link to="/registro" className="nav-link" >Agenda tu cita</Link></li>
+                            <li className="nav-item"><Link to="/login" className="nav-link" >Inicia Sesión</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -73,6 +64,38 @@ function Servicios() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+            {/*<!-- Features section-->*/}
+            <section className="py-2" id="features">
+                <div className="container px-5 my-10">
+                    <div className="py-2 text-center">
+                        <div className="container px-5 my-5">
+                            <div className="row gx-5 justify-content-center">
+                                <div className="col-lg-10 col-xl-7">
+                                    <div className="text-center">
+                                        <div className="row py-5">
+                                            <div className="col mb-5 h-100">
+                                                <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-clock"></i></div>
+                                                <h2 className="h5">HORARIOS</h2>
+                                                <p className="mb-0">10:00 am a 8:00 pm</p>
+                                            </div>
+                                            <div className="col mb-5 h-100">
+                                                <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-house"></i></div>
+                                                <h2 className="h5">SEDE</h2>
+                                                <p className="mb-0">Cll 2A #66-34 Medellin</p>
+                                            </div>
+                                            <div className="col mb-5 h-100">
+                                                <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-telephone"></i></div>
+                                                <h2 className="h5">CONTACTO</h2>
+                                                <p className="mb-0">3009000800</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
             </section> 
         </main>
