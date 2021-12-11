@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import QuienesSomos from './Quienessomos';
-import Servicios from './Servicios';
-import ReservasUi from './ReservasUi';
-import AgendaUa from './AgendaUa';
-import Login from './Login';
-import Registro from './Registro';
+import App from './vistas/App';
+import QuienesSomos from './vistas/Quienessomos';
+import Servicios from './vistas/Servicios';
+import ReservasUi from './vistas/ReservasUi';
+import AgendaUa from './vistas/AgendaUa';
+import Login from './vistas/Login';
+import Registro from './vistas/Registro';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 

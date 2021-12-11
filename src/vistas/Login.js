@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie/es6';
-import { apiUsuarios } from './utils/api';
+import { apiUsuarios } from '../utils/api';
 
 const cookies = new Cookies();
 

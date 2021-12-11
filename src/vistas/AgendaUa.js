@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import { apiServicios } from './utils/api';
+import { apiServicios } from '../utils/api';
 
 function AgendaUa() {
 
