@@ -1,17 +1,13 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
-import md5 from 'md5';
-import Cookies from 'universal-cookie/es6';
-import { apiUsuarios } from '../utils/api';
-
-const cookies = new Cookies();
+import { apiAuth } from '../utils/api';
+import request from '../utils/request';
 
 function Login() {
     
     const [user, setUser] = useState({
-        username: '',
-        pasword: ''
+        email: '',
+        password: ''
     });
 
     const handleChange = e =>{
@@ -20,33 +16,22 @@ function Login() {
         });
     };
 
-    const iniciarSesion = () =>{
-        axios.get(apiUsuarios, {params:{usuario: user.username , contraseña: md5(user.password)}})
-        .then(response=>{
-            return response.data;
+    const iniciarSesion = async () =>{
+
+        const response = await request({link: apiAuth, 
+            body:({
+            email : user.email,
+            password: user.password
+        }), method: 'POST'
         })
-        .then(response=>{
-            if(response.length>0){
-                var respuesta = response[0];
-                cookies.set('id', respuesta.id, {path:"/"});
-                cookies.set('Nombre', respuesta.Nombre, {path:"/"});
-                if(respuesta.tipousuario === "Administrador"){
-                    alert('Bienvenido ' +  respuesta.Nombre);
-                    window.location.href="./agendaua"
-                }else if(respuesta.tipousuario === "Interno"){
-                    alert('Bienvenido ' +  respuesta.Nombre);
-                    window.location.href="./reservasui"
-                }else if(respuesta.tipousuario === "Externo"){
-                    alert('Bienvenido ' +  respuesta.Nombre);
-                    window.location.href="./serviciosue"
-                }
-            }else{
-                alert("El usuario o la contraseña no son correctos");
-            }
-        })
-        .catch(error=>{
-            return error;
-        })
+        if(response.success){
+            localStorage.setItem('token', response.token )
+            localStorage.setItem('user', JSON.stringify(response.user))
+            alert(`Bienvenido ${response.user.name}`)
+            window.location.href='./serviciosue'
+        }else{
+            alert(`${response.message}`)
+        }
     }
     
     return (
@@ -80,7 +65,7 @@ function Login() {
                                                     <h1>Inicia Sesión</h1>
                                                    <div className="input-contenedor">
                                                       <i className="fas fa-envelope icon"></i>
-                                                      <input name="username" type="text" placeholder="Correo Electronico" onChange={handleChange}/>
+                                                      <input name="email" type="text" placeholder="Correo Electronico" onChange={handleChange}/>
                                                    </div>
                                                    <div className="input-contenedor">
                                                       <i className="fas fa-key icon"></i>

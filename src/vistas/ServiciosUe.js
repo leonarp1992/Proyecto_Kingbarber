@@ -15,7 +15,7 @@ function ServiciosUe() {
                           <li className="nav-item"><Link to='/empleadosua' className="nav-link" >Empleados</Link></li>
                           <li className="nav-item"><Link to='/serviciosua' className="nav-link" >Servicios</Link></li>
                           <li className="nav-item"><Link to='/reportes' className="nav-link" >Reportes</Link></li>
-                          <li className="nav-item"><Link to='/' className="nav-link" >Cerrar Sesión</Link></li>
+                          <li className="nav-item"><Link to='/' className="nav-link">Cerrar Sesión</Link></li>
                       </ul>
                 </div>
             </div>

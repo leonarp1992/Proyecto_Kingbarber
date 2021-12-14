@@ -1,6 +1,45 @@
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import { apiCreateUsers } from '../utils/api';
+import request from '../utils/request';
 
 function Registro() {
+
+
+    const [user, setUser] = useState({
+        username: '',
+        email:'',
+        password: ''
+    });
+
+    const handleSave = e =>{
+        setUser(function(prev){
+            return ({...prev, [e.target.name]: e.target.value})
+        });
+    };
+
+    const register = async() =>{
+        
+        if(!user.email || !user.password || !user.username){
+            alert("Por favor diligencie todos los campos.")
+        }else{
+            const response = await request({link: apiCreateUsers, 
+                body:({
+                name:user.username,
+                email : user.email,
+                password: user.password
+            }), method: 'POST'
+            })
+            if(response.success){
+                localStorage.setItem('token', response.token )
+                localStorage.setItem('user', response.user )
+                alert('Usuario creado exitosamente')
+                window.location.href='./login'
+            }else{
+                alert(`${response.message}`)
+            }
+        }          
+    };
   return (
   <div>
     <main className="flex-shrink-0">
@@ -28,26 +67,26 @@ function Registro() {
                         <div className="row gx-5 justify-content-center">
                             <div className="col-lg-10 col-xl-7">
                                 <div className="text-center">
-                                    <form className="formulario">
+                                    {/* < className="formulario" onSubmit={register}> */}
                                         <h1>Registrate</h1>
                                         <div className="contenedor">
                                         <div className="input-contenedor">
                                              <i className="fas fa-user icon"></i>
-                                             <input type="text" placeholder="Nombre Completo"/>
+                                             <input name='username' type="text" placeholder="Nombre Completo" onChange={handleSave}/>
                                         </div>
                                         <div className="input-contenedor">
                                             <i className="fas fa-envelope icon"></i>
-                                            <input type="text" placeholder="Correo Electronico"/>
+                                            <input name='email' type="text" placeholder="Correo Electronico" onChange={handleSave}/>
                                         </div>
                                         <div className="input-contenedor">
                                             <i className="fas fa-key icon"></i>
-                                        <input type="password" placeholder="Contraseña"/>
+                                        <input name='password' type="password" placeholder="Contraseña" onChange={handleSave}/>
                                         </div>
-                                            <input type="submit" value="Registrate" className="button"/>
+                                            <input type="button" value="Registrate" className="button" onClick={register}/>
                                             <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
                                             <p>¿Ya tienes una cuenta?<Link to="/login" class="link" >Iniciar Sesion</Link></p>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>

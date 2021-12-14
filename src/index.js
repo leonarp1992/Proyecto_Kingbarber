@@ -14,11 +14,14 @@ import Reportes from './vistas/Reportes';
 import ServiciosUe from './vistas/ServiciosUe';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Navbar from './components/Navbar';
+
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <Navbar/>
       <Routes>
         <Route exact path="/" element={<App />}/>
         <Route path="/quienessomos" element={<QuienesSomos />}/>
