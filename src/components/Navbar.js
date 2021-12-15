@@ -35,22 +35,22 @@ function NavbarUa() {
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link to="/agendaua" className="nav-link">
+                  <Link to="/" className="nav-link">
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/calificacionesua" className="nav-link">
+                  <Link to="/quienessomos" className="nav-link">
                     ¿Quienes somos?
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/empleadosua" className="nav-link">
+                  <Link to="/servicios" className="nav-link">
                     Servicios
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/serviciosua" className="nav-link">
+                  <Link to="/registro" className="nav-link">
                     Registro
                   </Link>
                 </li>

@@ -86,11 +86,11 @@ function Login() {
               <a className="link-light small" href="#!">
                 <i className="bi bi-instagram"> @barberking</i>
               </a>
-              <span class="text-white mx-1">&middot;</span>
+              <span className="text-white mx-1">&middot;</span>
               <a className="link-light small" href="#!">
                 <i className="bi bi-facebook"> BarbeKing</i>
               </a>
-              <span class="text-white mx-1">&middot;</span>
+              <span className="text-white mx-1">&middot;</span>
               <a className="link-light small" href="#!">
                 <i className="bi bi-whatsapp"> 3009000800</i>
               </a>

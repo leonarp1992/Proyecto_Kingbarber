@@ -8,7 +8,7 @@ function ServiciosUe() {
             <div className="row gx-5 align-items-center">
               <div className="col-lg-4">
                 <img
-                  class="img-fluid rounded mb-5 mb-lg-0"
+                  className="img-fluid rounded mb-5 mb-lg-0"
                   src={process.env.PUBLIC_URL + '/img/tintecabello.jpg'}
                   alt="..."
                 />
@@ -65,7 +65,7 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a class="btn btn-outline-dark" href="#!">
+                      <a className="btn btn-outline-dark" href="#!">
                         Reservar
                       </a>
                     </div>
@@ -103,7 +103,7 @@ function ServiciosUe() {
             <div className="row gx-5 align-items-center">
               <div className="col-lg-4">
                 <img
-                  class="img-fluid rounded mb-5 mb-lg-0"
+                  className="img-fluid rounded mb-5 mb-lg-0"
                   src={process.env.PUBLIC_URL + '/img/cortecabello.jpg'}
                   alt="..."
                 />
@@ -165,7 +165,7 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a class="btn btn-outline-dark" href="#!">
+                      <a className="btn btn-outline-dark" href="#!">
                         Reservar
                       </a>
                     </div>
@@ -222,7 +222,7 @@ function ServiciosUe() {
             <div className="row gx-5 align-items-center">
               <div className="col-lg-4">
                 <img
-                  class="img-fluid rounded mb-5 mb-lg-0"
+                  className="img-fluid rounded mb-5 mb-lg-0"
                   src={process.env.PUBLIC_URL + '/img/diseñobarba.jpg'}
                   alt="..."
                 />
@@ -284,7 +284,7 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a class="btn btn-outline-dark" href="#!">
+                      <a className="btn btn-outline-dark" href="#!">
                         Reservar
                       </a>
                     </div>
@@ -343,7 +343,7 @@ function ServiciosUe() {
             <div className="row gx-5 align-items-center">
               <div className="col-lg-4">
                 <img
-                  class="img-fluid rounded mb-5 mb-lg-0"
+                  className="img-fluid rounded mb-5 mb-lg-0"
                   src={process.env.PUBLIC_URL + '/img/mascarilla.jpg'}
                   alt="..."
                 />
@@ -375,7 +375,7 @@ function ServiciosUe() {
                     </div>
                     <ul className="list-unstyled mb-4">
                       <li className="mb-2">
-                        <i cclassNamelass="bi bi-clock"></i>
+                        <i className="bi bi-clock"></i>
                         <strong>20 - 30 minutos</strong>
                       </li>
                     </ul>
@@ -403,7 +403,7 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a class="btn btn-outline-dark" href="#!">
+                      <a className="btn btn-outline-dark" href="#!">
                         Reservar
                       </a>
                     </div>
@@ -418,7 +418,7 @@ function ServiciosUe() {
             <div className="row gx-5 align-items-center">
               <div className="col-lg-4">
                 <img
-                  class="img-fluid rounded mb-5 mb-lg-0"
+                  className="img-fluid rounded mb-5 mb-lg-0"
                   src={process.env.PUBLIC_URL + '/img/manicure.jpg'}
                   alt="..."
                 />
@@ -472,7 +472,7 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a class="btn btn-outline-dark" href="#!">
+                      <a className="btn btn-outline-dark" href="#!">
                         Reservar
                       </a>
                     </div>

@@ -30,7 +30,7 @@ function ServiciosUi() {
                 <li className="nav-item dropdown">
                   <Link
                     to=""
-                    class="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle"
                     id="navbarDropdownBlog"
                     href="#"
                     role="button"
@@ -44,12 +44,12 @@ function ServiciosUi() {
                     aria-labelledby="navbarDropdownBlog"
                   >
                     <li>
-                      <Link to="" class="dropdown-item" href="blog-home.html">
+                      <Link to="" className="dropdown-item" href="blog-home.html">
                         Crear Agenda
                       </Link>
                     </li>
                     <li>
-                      <Link to="" class="dropdown-item" href="blog-post.html">
+                      <Link to="" className="dropdown-item" href="blog-post.html">
                         Reportes
                       </Link>
                     </li>

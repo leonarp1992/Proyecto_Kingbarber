@@ -1,4 +1,4 @@
-function App() {
+function Home() {
   return (
     <div>
       <main className="flex-shrink-0">
@@ -33,21 +33,21 @@ function App() {
                       <div className="row py-5">
                         <div className="col mb-5 h-100">
                           <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3">
-                            <i class="bi bi-clock"></i>
+                            <i className="bi bi-clock"></i>
                           </div>
                           <h2 className="h5">HORARIOS</h2>
                           <p className="mb-0">10:00 am a 8:00 pm</p>
                         </div>
                         <div className="col mb-5 h-100">
                           <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3">
-                            <i class="bi bi-house"></i>
+                            <i className="bi bi-house"></i>
                           </div>
                           <h2 className="h5">SEDE</h2>
                           <p className="mb-0">Cll 2A #66-34 Medellin</p>
                         </div>
                         <div className="col mb-5 h-100">
                           <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3">
-                            <i class="bi bi-telephone"></i>
+                            <i className="bi bi-telephone"></i>
                           </div>
                           <h2 className="h5">CONTACTO</h2>
                           <p className="mb-0">3009000800</p>
@@ -74,11 +74,11 @@ function App() {
               <a className="link-light small" href="www.instagram.com">
                 <i className="bi bi-instagram"> @barberking</i>
               </a>
-              <span class="text-white mx-1">&middot;</span>
+              <span className="text-white mx-1">&middot;</span>
               <a className="link-light small" href="#!">
                 <i className="bi bi-facebook"> BarbeKing</i>
               </a>
-              <span class="text-white mx-1">&middot;</span>
+              <span className="text-white mx-1">&middot;</span>
               <a className="link-light small" href="#!">
                 <i className="bi bi-whatsapp"> 3009000800</i>
               </a>
@@ -93,4 +93,4 @@ function App() {
     </div>
   );
 }
-export default App;
+export default Home;

@@ -260,8 +260,8 @@ function ReservasUi() {
                       <td>Emanuel</td>
                       <td>FINALIZADO</td>
                       <td>
-                        <i class="bi bi-pencil-square"></i>{' '}
-                        <i class="bi bi-trash-fill"></i>
+                        <i className="bi bi-pencil-square"></i>{' '}
+                        <i className="bi bi-trash-fill"></i>
                       </td>
                     </tr>
                     <tr>

@@ -13,7 +13,7 @@ function EmpleadosUi() {
             </div>
             <div className="table-responsive">
               <table
-                class="table table-sm-responsive"
+                className="table table-sm-responsive"
                 style={{
                   color: 'black',
                   width: '100%',
@@ -106,7 +106,7 @@ function EmpleadosUi() {
                     <td></td>
                     <td>
                       <i className="bi bi-pencil-square"></i>{' '}
-                      <i class="bi bi-trash-fill"></i>
+                      <i className="bi bi-trash-fill"></i>
                     </td>
                   </tr>
                 </tbody>

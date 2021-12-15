@@ -96,7 +96,7 @@ function Servicios() {
                       <div className="row py-5">
                         <div className="col mb-5 h-100">
                           <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3">
-                            <i class="bi bi-clock"></i>
+                            <i className="bi bi-clock"></i>
                           </div>
                           <h2 className="h5">HORARIOS</h2>
                           <p className="mb-0">10:00 am a 8:00 pm</p>
@@ -110,7 +110,7 @@ function Servicios() {
                         </div>
                         <div className="col mb-5 h-100">
                           <div className="feature bg-dark bg-gradient text-white rounded-3 mb-3">
-                            <i class="bi bi-telephone"></i>
+                            <i className="bi bi-telephone"></i>
                           </div>
                           <h2 className="h5">CONTACTO</h2>
                           <p className="mb-0">3009000800</p>
