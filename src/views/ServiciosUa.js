@@ -34,7 +34,7 @@ function ServiciosUa() {
                     <td>45 minutos</td>
                     <td>$33.000</td>
                     <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
+                      <i className="bi bi-pencil-square"></i>
                       <i className="bi bi-trash-fill"></i>
                     </td>
                   </tr>
@@ -49,99 +49,34 @@ function ServiciosUa() {
                       <i className="bi bi-trash-fill"></i>
                     </td>
                   </tr>
-                  <tr>
-                    <td>03</td>
-                    <td>Corte de cabello</td>
-                    <td>Corte de cabello para niños</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>04</td>
-                    <td>Corte de cabello</td>
-                    <td>Corte de cabello + peinado</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>05</td>
-                    <td>Diseño de barba</td>
-                    <td>Corte de cabello + barba + cejas</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>06</td>
-                    <td>Diseño de barba</td>
-                    <td>Barba + cejas</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>07</td>
-                    <td>Diseño de barba</td>
-                    <td>Tinte de barba</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
-            <div className="d-flex justify-content-center fw-bolder">
-              <h3>Agregar servicio</h3>
-            </div>
-            <div className="table-responsive">
-              <table
-                className="table table-sm-responsive"
-                style={{
-                  color: 'black',
-                  width: '100%',
-                  alignContent: 'center',
-                }}
-              >
-                <thead style={{ backgroundColor: '#343a40', color: 'white' }}>
-                  <tr>
-                    <th>ID</th>
-                    <th>SERVICIO</th>
-                    <th>DESCRIPCIÓN</th>
-                    <th>DURACIÓN</th>
-                    <th>PRECIO</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody style={{ backgroundColor: '#C4C4C4' }}>
-                  <tr>
-                    <td>01</td>
-                    <td>Corte de cabello</td>
-                    <td>Corte + lavado + peinado</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-check-square"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className="d-flex justify-content-center fw-bolder">
+                <h3>Agregar servicio</h3>
+              </div>
+            <div style={{backgroundColor:'#C4C4C4'}}>
+              <div className="row">
+                <div className="col-4" style={{margin:'1%'}}>
+                  <input className="border border-1 border-dark" type="text" placeholder="Nombre del servicio"></input>
+                </div>
+                <div><br/></div>                      
+                <div className="col-9" style={{margin:'1%'}}>
+                  <input className="border border-1 border-dark" type="text" placeholder="Descripción del servicio"></input>
+                </div>
+                <div><br/></div>
+                <div className="col-4" style={{margin:'1%'}}>
+                  <input className="border border-1 border-dark" type="text" placeholder="Precio"></input>
+                </div>
+                <div className="col-4" style={{margin:'1%'}}>
+                  <input className="border border-1 border-dark" type="text" placeholder="Duración"></input>
+                </div>
+                <div><br/></div>
+                <div className="d-grid gap-2 col-4 mx-auto">
+                  <input className="btn btn-secondary" type="button" value="Crear Servicio"></input>
+                </div>
+                <div><br/></div>
+              </div>
             </div>
           </div>
         </section>

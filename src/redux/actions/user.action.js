@@ -1,4 +1,6 @@
 import { SAVE_USER } from '../../constants';
+import { apiAuth } from '../../utils/api';
+import request from '../../utils/request';
 
 export const saveUser = (payload) => ({
   type: SAVE_USER,
@@ -7,7 +9,7 @@ export const saveUser = (payload) => ({
 
 export const loginUser = ({ email, password }) => {
   return async (dispatch) => {
-    /*const response = await request({
+    const response = await request({
       link: apiAuth,
       body: {
         email,
@@ -20,15 +22,13 @@ export const loginUser = ({ email, password }) => {
       localStorage.setItem('user', JSON.stringify(response.user));
       dispatch(saveUser(response.user));
       alert(`Bienvenido ${response.user.name}`);
-      window.location.href = './serviciosue';
+      if(response.rol === "user"){
+        window.location.href = './serviciosue';
+      }else{
+        window.location.href = './agendaua';
+      }
     } else {
       alert(`${response.message}`);
-    }*/
-    const response = { user: { name: 'jerson' }, token: 'asdassd' };
-    localStorage.setItem('token', response.token);
-    localStorage.setItem('user', JSON.stringify(response.user));
-    dispatch(saveUser(response.user));
-    alert(`Bienvenido ${response.user.name}`);
-    window.location.href = './serviciosue';
+    }
   };
 };

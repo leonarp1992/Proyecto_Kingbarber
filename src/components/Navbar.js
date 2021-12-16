@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function NavbarUa() {
+function Navbar() {
   const user = useSelector((state) => state.user);
   const logout = async () => {
     localStorage.removeItem('token');
@@ -75,4 +75,4 @@ function NavbarUa() {
     </div>
   );
 }
-export default NavbarUa;
+export default Navbar;
