@@ -1,15 +1,16 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { SAVE_USER, UPDATE_USER_NAME } from "../../constants";
+import { SAVE_SERVICES, UPDATE_SERVICES } from "../../constants";
 
-const initialState = null;
+const initialState = [];
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case SAVE_USER:
+    case SAVE_SERVICES:
       return payload;
-    case UPDATE_USER_NAME:
-      return {...state, name: payload }
+    case UPDATE_SERVICES:
+        return [...state, ...payload]
     default:
       return state;
   }
 };
+

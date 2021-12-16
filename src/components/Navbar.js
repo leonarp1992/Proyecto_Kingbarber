@@ -34,26 +34,55 @@ function Navbar() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link to="/" className="nav-link">
-                    Home
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/quienessomos" className="nav-link">
-                    ¿Quienes somos?
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/servicios" className="nav-link">
-                    Servicios
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/registro" className="nav-link">
-                    Registro
-                  </Link>
-                </li>
+                {user?.rol === "Administrador" && (
+                  <div>
+                      <li className="nav-item">
+                        <Link to="/agendaua" className="nav-link">
+                        Agenda
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/calificacionesua" className="nav-link">
+                        Comentarios
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/empleadosua" className="nav-link">
+                        Empleados
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/serviciosua" className="nav-link">
+                        Servicios
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/reportes" className="nav-link">
+                        Reportes
+                        </Link>
+                      </li>
+                  </div>
+                )}
+
+                {user?.rol === "User" && (
+                  <div>
+                    <li className="nav-item">
+                      <Link to="/serviciosue" className="nav-link">
+                      Servicios
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/reservasui" className="nav-link">
+                      Reservar
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/calificacionesua" className="nav-link">
+                      Calificar Servicio
+                      </Link>
+                    </li>
+                  </div>
+                )}
                 {user ? (
                   <li className="nav-item">
                     <Link to="/" className="nav-link" onClick={logout}>

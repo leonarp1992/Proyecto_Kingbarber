@@ -1,9 +1,14 @@
-import { SAVE_USER } from '../../constants';
+import { SAVE_USER, UPDATE_USER_NAME } from '../../constants';
 import { apiAuth } from '../../utils/api';
 import request from '../../utils/request';
 
 export const saveUser = (payload) => ({
   type: SAVE_USER,
+  payload,
+});
+
+export const updateUserName = (payload) => ({
+  type: UPDATE_USER_NAME,
   payload,
 });
 

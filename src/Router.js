@@ -15,7 +15,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { useDispatch } from 'react-redux';
 import { saveUser } from './redux/actions/user.action';
-import NavbarUa from './components/NavbarUa';
 
 const RouterContainer = () => {
   
@@ -32,7 +31,6 @@ const RouterContainer = () => {
     <React.StrictMode>
       <Router>
         <Navbar />
-        <NavbarUa />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/quienessomos" element={<QuienesSomos />} />
