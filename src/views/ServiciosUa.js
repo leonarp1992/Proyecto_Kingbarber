@@ -57,19 +57,17 @@ function ServiciosUa() {
               </div>
             <div style={{backgroundColor:'#C4C4C4'}}>
               <div className="row">
-                <div className="col-4" style={{margin:'1%'}}>
+                <div className="col col-lg-3" style={{margin:'1%'}}>
                   <input className="border border-1 border-dark" type="text" placeholder="Nombre del servicio"></input>
                 </div>
-                <div><br/></div>                      
-                <div className="col-9" style={{margin:'1%'}}>
-                  <input className="border border-1 border-dark" type="text" placeholder="Descripción del servicio"></input>
-                </div>
-                <div><br/></div>
-                <div className="col-4" style={{margin:'1%'}}>
+                <div className="col col-lg-3" style={{margin:'1%'}}>
                   <input className="border border-1 border-dark" type="text" placeholder="Precio"></input>
-                </div>
-                <div className="col-4" style={{margin:'1%'}}>
+                </div>                 
+                <div className="col col-lg-3" style={{margin:'1%'}}>
                   <input className="border border-1 border-dark" type="text" placeholder="Duración"></input>
+                </div>                     
+                <div className="col-lg-12" style={{margin:'1%'}}>
+                  <input className="border border-1 border-dark" type="text" placeholder="Descripción del servicio"></input>
                 </div>
                 <div><br/></div>
                 <div className="d-grid gap-2 col-4 mx-auto">

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ServiciosUe() {
   return (
     <div>
@@ -42,9 +44,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -65,9 +67,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -88,9 +90,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -142,9 +144,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -165,9 +167,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -207,9 +209,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -261,9 +263,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -284,9 +286,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -305,9 +307,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -328,9 +330,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -380,9 +382,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -403,9 +405,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -451,9 +453,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -472,9 +474,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -495,9 +497,9 @@ function ServiciosUe() {
                       </li>
                     </ul>
                     <div className="d-grid">
-                      <a className="btn btn-outline-dark" href="#!">
+                      <Link to="/registro" className="btn btn-outline-dark">
                         Reservar
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

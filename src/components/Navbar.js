@@ -34,9 +34,11 @@ function Navbar() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                {user?.rol === "Administrador" && (
+
+                {user?.rol === "admin" &&(
                   <div>
-                      <li className="nav-item">
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li className="nav-item">
                         <Link to="/agendaua" className="nav-link">
                         Agenda
                         </Link>
@@ -61,11 +63,12 @@ function Navbar() {
                         Reportes
                         </Link>
                       </li>
+                    </ul>
                   </div>
                 )}
-
-                {user?.rol === "User" && (
+                {user?.rol === "user" &&(
                   <div>
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">                      
                     <li className="nav-item">
                       <Link to="/serviciosue" className="nav-link">
                       Servicios
@@ -81,6 +84,7 @@ function Navbar() {
                       Calificar Servicio
                       </Link>
                     </li>
+                    </ul>
                   </div>
                 )}
                 {user ? (
@@ -90,11 +94,35 @@ function Navbar() {
                     </Link>
                   </li>
                 ) : (
-                  <li className="nav-item">
-                    <Link to="/login" className="nav-link" onClick={logout}>
-                      Iniciar Sesión
-                    </Link>
-                  </li>
+                  <div>                    
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">      
+                      <li className="nav-item">
+                        <Link to="/" className="nav-link">
+                        Home
+                        </Link>
+                      </li>                 
+                      <li className="nav-item">
+                        <Link to="/quienessomos" className="nav-link">
+                        ¿Quienes somos?
+                        </Link>
+                      </li>                     
+                      <li className="nav-item">
+                        <Link to="/serviciosue" className="nav-link">
+                        Servicios
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/registro" className="nav-link">
+                        Registrate
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/login" className="nav-link">
+                        Iniciar Sesión
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 )}
               </ul>
             </div>
