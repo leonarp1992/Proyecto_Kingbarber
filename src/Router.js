@@ -11,10 +11,14 @@ import EmpleadosUa from './views/EmpleadosUa';
 import ServiciosUa from './views/ServiciosUa';
 import Reportes from './views/Reportes';
 import ServiciosUe from './views/ServiciosUe';
+import Reservar from './views/Reservar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { useDispatch } from 'react-redux';
 import { saveUser } from './redux/actions/user.action';
+import CreateEmp from './views/CreateEmp';
+import CreateService from './views/CreateService';
+
 
 const RouterContainer = () => {
   
@@ -44,6 +48,9 @@ const RouterContainer = () => {
           <Route path="/reportes" element={<Reportes />} />
           <Route path="/reservasui" element={<ReservasUi />} />
           <Route path="/serviciosue" element={<ServiciosUe />} />
+          <Route path="/reservar" element={<Reservar />} />
+          <Route path="/createemp" element={<CreateEmp />} />
+          <Route path="/createservice" element={<CreateService />} />
         </Routes>
       </Router>
     </React.StrictMode>

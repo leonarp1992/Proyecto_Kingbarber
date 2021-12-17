@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function EmpleadosUa() {
   return (
     <div>
@@ -18,8 +20,7 @@ function EmpleadosUa() {
               >
                 <thead style={{ backgroundColor: '#343a40', color: 'white' }}>
                   <tr>
-                    <th>DOCUMENTO</th>
-                    <th>NOMBRES</th>
+                    <th>NOMBRE</th>
                     <th>APELLIDOS</th>
                     <th>CARGO</th>
                     <th colspan="2" style={{ textAlign: 'center' }}>
@@ -100,129 +101,15 @@ function EmpleadosUa() {
                       <i className="bi bi-trash-fill"></i>
                     </td>
                   </tr>
-                  <tr>
-                    <td>CC: 10618836208</td>
-                    <td>Jorge Luis</td>
-                    <td>Curiel</td>
-                    <td>Barbero</td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Activos</option>
-                        <option value="caja">Caja</option>
-                        <option>01</option>
-                        <option>03</option>
-                        <option>06</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Agregar</option>
-                        <option value="caja">Caja</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                      </select>
-                    </td>
-                    <td>3123424443</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>CC: 345637770</td>
-                    <td>Yorly Roxanna</td>
-                    <td>Catuche</td>
-                    <td>Estilista</td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Activos</option>
-                        <option value="caja">Caja</option>
-                        <option>01</option>
-                        <option>03</option>
-                        <option>06</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Agregar</option>
-                        <option value="caja">Caja</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                      </select>
-                    </td>
-                    <td>3007001624</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
-            <div className="d-flex justify-content-center fw-bolder">
-              <h3>Agregar empleado</h3>
-            </div>
-            <div className="table-responsive">
-              <table
-                className="table table-sm-responsive"
-                style={{
-                  color: 'black',
-                  width: '100%',
-                  alignContent: 'center',
-                }}
-              >
-                <thead style={{ backgroundColor: '#343a40', color: 'white' }}>
-                  <tr>
-                    <th>DOCUMENTO</th>
-                    <th>NOMBRES</th>
-                    <th>APELLIDOS</th>
-                    <th>CARGO</th>
-                    <th>FUNCIONES</th>
-                    <th>CELULAR</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody style={{ backgroundColor: '#C4C4C4' }}>
-                  <tr>
-                    <td>CC:1030402942</td>
-                    <td>Jorge</td>
-                    <td>Benavides</td>
-                    <td>Cajero</td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Agregar</option>
-                        <option value="caja">Caja</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                      </select>
-                    </td>
-                    <td>3128431021</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <p>
+            ¿Crear empleado?
+              <Link to="/createemp" className="link">
+                Crealo aquí
+              </Link>
+            </p>
           </div>
         </section>
       </main>
@@ -231,7 +118,7 @@ function EmpleadosUa() {
         <div className="container px-5">
           <div className="row align-items-center justify-content-between flex-column flex-sm-row">
             <div className="col-auto">
-              <div className="small m-0 text-white">
+              <div className=" small m-0 text-white">
                 Copyright 2021 &copy; MisionTIC 2022
               </div>
             </div>

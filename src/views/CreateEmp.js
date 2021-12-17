@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import { apiCreateUsers } from '../utils/api';
+import { apiCreateBarbers } from '../utils/api';
 import request from '../utils/request';
 
-function Registro() {
+function CreateEmp() {
 
 
     const [user, setUser] = useState({
@@ -18,12 +17,12 @@ function Registro() {
         });
     };
 
-    const register = async() =>{
+    const CreateEm = async() =>{
         
         if(!user.email || !user.password || !user.username){
             alert("Por favor diligencie todos los campos.")
         }else{
-            const response = await request({link: apiCreateUsers, 
+            const response = await request({link: apiCreateBarbers, 
                 body:({
                 name:user.username,
                 email : user.email,
@@ -33,8 +32,8 @@ function Registro() {
             if(response.success){
                 localStorage.setItem('token', response.token )
                 localStorage.setItem('user', response.user )
-                alert('Usuario creado exitosamente')
-                window.location.href='./login'
+                alert('Empleado creado exitosamente')
+                window.location.href='./empleadosua'
             }else{
                 alert(`${response.message}`)
             }
@@ -51,7 +50,8 @@ function Registro() {
                 <div className="row gx-5 justify-content-center">
                   <div className="col-lg-10 col-xl-7">
                     <div className="text-center">
-                      <h1>Registrate</h1>
+                      {/* < className="formulario" onSubmit={register}> */}
+                      <h1>Crear Empleados</h1>
                       <div className="contenedor">
                         <div className="input-contenedor">
                           <i className="fas fa-user icon"></i>
@@ -82,20 +82,10 @@ function Registro() {
                         </div>
                         <input
                           type="button"
-                          value="Registrate"
+                          value="Crear"
                           className="button"
-                          onClick={register}
+                          onClick={CreateEm}
                         />
-                        <p>
-                          Al registrarte, aceptas nuestras Condiciones de uso y
-                          Política de privacidad.
-                        </p>
-                        <p>
-                          ¿Ya tienes una cuenta?
-                          <Link to="/login" className="link">
-                            Iniciar Sesion
-                          </Link>
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -137,4 +127,4 @@ function Registro() {
     </div>
   );
 }
-export default Registro;
+export default CreateEmp;

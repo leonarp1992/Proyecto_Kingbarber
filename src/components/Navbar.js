@@ -70,12 +70,12 @@ function Navbar() {
                   <div>
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">                      
                     <li className="nav-item">
-                      <Link to="/serviciosue" className="nav-link">
+                      <Link to="/servicios" className="nav-link">
                       Servicios
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/reservasui" className="nav-link">
+                      <Link to="/reservar" className="nav-link">
                       Reservar
                       </Link>
                     </li>

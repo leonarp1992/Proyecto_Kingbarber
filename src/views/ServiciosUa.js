@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 function ServiciosUa() {
   return (
     <div>
@@ -51,30 +52,12 @@ function ServiciosUa() {
                   </tr>
                 </tbody>
               </table>
-            </div>
-              <div className="d-flex justify-content-center fw-bolder">
-                <h3>Agregar servicio</h3>
-              </div>
-            <div style={{backgroundColor:'#C4C4C4'}}>
-              <div className="row">
-                <div className="col col-lg-3" style={{margin:'1%'}}>
-                  <input className="border border-1 border-dark" type="text" placeholder="Nombre del servicio"></input>
-                </div>
-                <div className="col col-lg-3" style={{margin:'1%'}}>
-                  <input className="border border-1 border-dark" type="text" placeholder="Precio"></input>
-                </div>                 
-                <div className="col col-lg-3" style={{margin:'1%'}}>
-                  <input className="border border-1 border-dark" type="text" placeholder="Duración"></input>
-                </div>                     
-                <div className="col-lg-12" style={{margin:'1%'}}>
-                  <input className="border border-1 border-dark" type="text" placeholder="Descripción del servicio"></input>
-                </div>
-                <div><br/></div>
-                <div className="d-grid gap-2 col-4 mx-auto">
-                  <input className="btn btn-secondary" type="button" value="Crear Servicio"></input>
-                </div>
-                <div><br/></div>
-              </div>
+              <p>
+                ¿Crear Servicio?
+                <Link to="/createservice" className="link">
+                Crealo aquí
+                </Link>
+            </p>
             </div>
           </div>
         </section>

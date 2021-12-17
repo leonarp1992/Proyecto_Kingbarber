@@ -1,40 +1,41 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import { apiCreateUsers } from '../utils/api';
+import { apiCreateServices } from '../utils/api';
 import request from '../utils/request';
 
-function Registro() {
+function CreateService() {
 
 
-    const [user, setUser] = useState({
-        username: '',
-        email:'',
-        password: ''
+    const [service, setService] = useState({
+        name: '',
+        descripcion:'',
+        price: '',
+        duration: ''
     });
 
     const handleSave = e =>{
-        setUser(function(prev){
+        setService(function(prev){
             return ({...prev, [e.target.name]: e.target.value})
         });
     };
 
-    const register = async() =>{
+    const CreateServ = async() =>{
         
-        if(!user.email || !user.password || !user.username){
+        if(!service.name || !service.descripcion || !service.price || !service.duration){
             alert("Por favor diligencie todos los campos.")
         }else{
-            const response = await request({link: apiCreateUsers, 
+            const response = await request({link: apiCreateServices, 
                 body:({
-                name:user.username,
-                email : user.email,
-                password: user.password
+                name:service.name,
+                description : service.descripcion,
+                price: service.price,
+                duration: service.duration
             }), method: 'POST'
             })
             if(response.success){
                 localStorage.setItem('token', response.token )
                 localStorage.setItem('user', response.user )
-                alert('Usuario creado exitosamente')
-                window.location.href='./login'
+                alert('Empleado creado exitosamente')
+                window.location.href='./empleadosua'
             }else{
                 alert(`${response.message}`)
             }
@@ -51,51 +52,47 @@ function Registro() {
                 <div className="row gx-5 justify-content-center">
                   <div className="col-lg-10 col-xl-7">
                     <div className="text-center">
-                      <h1>Registrate</h1>
+                      {/* < className="formulario" onSubmit={register}> */}
+                      <h1>Crear Servicio</h1>
                       <div className="contenedor">
                         <div className="input-contenedor">
-                          <i className="fas fa-user icon"></i>
                           <input
-                            name="username"
+                            name="name"
                             type="text"
-                            placeholder="Nombre Completo"
+                            placeholder="Nombre del Servicio"
                             onChange={handleSave}
                           />
                         </div>
                         <div className="input-contenedor">
-                          <i className="fas fa-envelope icon"></i>
                           <input
-                            name="email"
+                            name="descripcion"
                             type="text"
-                            placeholder="Correo Electronico"
+                            placeholder="Descripción"
                             onChange={handleSave}
                           />
                         </div>
                         <div className="input-contenedor">
-                          <i className="fas fa-key icon"></i>
                           <input
-                            name="password"
-                            type="password"
-                            placeholder="Contraseña"
+                            name="price"
+                            type="text"
+                            placeholder="Precio"
+                            onChange={handleSave}
+                          />
+                        </div>
+                        <div className="input-contenedor">
+                          <input
+                            name="duration"
+                            type="text"
+                            placeholder="Duración"
                             onChange={handleSave}
                           />
                         </div>
                         <input
                           type="button"
-                          value="Registrate"
+                          value="Crear"
                           className="button"
-                          onClick={register}
+                          onClick={CreateServ}
                         />
-                        <p>
-                          Al registrarte, aceptas nuestras Condiciones de uso y
-                          Política de privacidad.
-                        </p>
-                        <p>
-                          ¿Ya tienes una cuenta?
-                          <Link to="/login" className="link">
-                            Iniciar Sesion
-                          </Link>
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -137,4 +134,4 @@ function Registro() {
     </div>
   );
 }
-export default Registro;
+export default CreateService;
