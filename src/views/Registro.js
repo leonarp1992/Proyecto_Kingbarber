@@ -31,8 +31,8 @@ function Registro() {
             }), method: 'POST'
             })
             if(response.success){
-                localStorage.setItem('token', response.token )
-                localStorage.setItem('user', response.user )
+                // localStorage.setItem('token', response.token )
+                // localStorage.setItem('user', response.user )
                 alert('Usuario creado exitosamente')
                 window.location.href='./login'
             }else{

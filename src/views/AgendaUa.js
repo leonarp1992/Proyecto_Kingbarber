@@ -4,20 +4,20 @@ import { apiServicios } from '../utils/api';
 
 function AgendaUa() {
 
-    const [services, setServices] = useState([])
+    // const [services, setServices] = useState([])
 
-    const init=()=>{
-        axios.get(apiServicios)
-            .then(function(response){
-                return response.data
-            }).then(response=>{
-                var datos = response;
-                setServices(datos);     
-        });
-    };
-    useEffect(init,[]); 
+    // const init=()=>{
+    //     axios.get(apiServicios)
+    //         .then(function(response){
+    //             return response.data
+    //         }).then(response=>{
+    //             var datos = response;
+    //             setServices(datos);     
+    //     });
+    // };
+    // useEffect(init,[]); 
 
-    console.log(services);
+    // console.log(services);
 
     return (
     <div>
@@ -49,7 +49,7 @@ function AgendaUa() {
                                       </tr>
                                   </thead>
                                   <tbody style={{backgroundColor:'#C4C4C4'}}>
-                                        {services.map(function(servicio) {
+                                        {/* {services.map(function(servicio) {
                                             return (
                                                 <tr>
                                                     <td>{servicio.Fecha}</td>
@@ -64,7 +64,7 @@ function AgendaUa() {
                                                     </td>
                                                 </tr>
                                             )
-                                        })};
+                                        })}; */}
                                   </tbody>
                               </table>
                           </div>

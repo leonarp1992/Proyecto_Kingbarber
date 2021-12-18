@@ -1,8 +1,27 @@
-import React, {useState} from 'react';
-import { apiCreateBarbers } from '../utils/api';
+import React, {useState, useEffect} from 'react';
+import { apiServicios, apiCreateBarbers } from '../utils/api';
 import request from '../utils/request';
 
 function CreateEmp() {
+    
+    const [services, setServices] = useState([]);
+    const [service, setService] = useState([]);
+
+    const obtenerServicios = async() => {
+      const response = await request({
+        link: apiServicios,
+        method: 'GET',
+      });
+      if (response.success) {
+        setServices(response.services)
+      } else {
+        alert(`${response.message}`);
+      }
+    }
+
+    useEffect(function (){
+      obtenerServicios();
+    }, []);
 
 
     const [user, setUser] = useState({
@@ -18,20 +37,18 @@ function CreateEmp() {
     };
 
     const CreateEm = async() =>{
-        
-        if(!user.email || !user.password || !user.username){
+        if(!user.email || !user.password || !user.username || !service){
             alert("Por favor diligencie todos los campos.")
         }else{
             const response = await request({link: apiCreateBarbers, 
                 body:({
                 name:user.username,
                 email : user.email,
-                password: user.password
+                password: user.password,
+                services: [service] 
             }), method: 'POST'
             })
             if(response.success){
-                localStorage.setItem('token', response.token )
-                localStorage.setItem('user', response.user )
                 alert('Empleado creado exitosamente')
                 window.location.href='./empleadosua'
             }else{
@@ -80,6 +97,21 @@ function CreateEmp() {
                             onChange={handleSave}
                           />
                         </div>
+                        <br/>
+                        <h4>Servicios</h4>
+                        <select
+                          className="form-select"
+                          aria-label="select example"
+                          onChange={function(e){
+                            setService(e.target.value);
+                          }}
+                        >{services.map(function(value, index){
+                          return(
+                            <option key={index} value={value._id}>{value.name}</option>
+                          )
+                        })}
+                        </select>
+                        <br/>
                         <input
                           type="button"
                           value="Crear"

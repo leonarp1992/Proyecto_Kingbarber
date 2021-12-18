@@ -1,91 +1,41 @@
+import {Table} from 'reactstrap';
+
 function Servicios() {
 
   return (
     <div>
       <main className="flex-shrink-0">
-        {/*<!-- Header-->*/}
-        <header className="bg-dark">
-          <img
-            src={process.env.PUBLIC_URL + '/img/servicios.jpg'}
-            alt=""
-            width="100%"
-          />
-        </header>
         {/*<!-- Features section-->*/}
-        <section className="py-2" id="features">
-          <div className="container px-5 my-10">
-            <div className="fs-10 py-2 text-center">
-              <img src={process.env.PUBLIC_URL + 'img/corbatin.jpg'} alt="" />
-            </div>
-            <div className="text-center mb-5">
-              <h2 className="fw-bolder">Nuestros Servicios</h2>
-            </div>
-            <div className="row justify-content-center text-center">
-              <div className="col-lg-4">
-                <div className="position-relative mb-5">
-                  <img
-                    className="img-fluid rounded-3 mb-3"
-                    src={process.env.PUBLIC_URL + 'img/cortecabello.jpg'}
-                    alt="..."
-                    width="200"
-                  />
-                  <br />
-                  <p className="fw-bolder">Corte de cabello</p>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="position-relative mb-5">
-                  <img
-                    className="img-fluid rounded-3 mb-3"
-                    src={process.env.PUBLIC_URL + 'img/diseñobarba.jpg'}
-                    alt="..."
-                    width="200"
-                    height="200"
-                  />
-                  <br />
-                  <p className="fw-bolder">Diseño de barba</p>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="position-relative mb-5">
-                  <img
-                    className="img-fluid rounded-3 mb-3"
-                    src={process.env.PUBLIC_URL + 'img/tintecabello.jpg'}
-                    alt="..."
-                    width="200"
-                    height="200"
-                  />
-                  <br />
-                  <p className="fw-bolder">Tinte para cabello</p>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="position-relative mb-5">
-                  <img
-                    className="img-fluid rounded-3 mb-3"
-                    src={process.env.PUBLIC_URL + 'img/manicure.jpg'}
-                    alt="..."
-                    width="200"
-                  />
-                  <br />
-                  <p className="fw-bolder">Manicure y pedicure</p>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="position-relative mb-5">
-                  <img
-                    className="img-fluid rounded-3 mb-3"
-                    src={process.env.PUBLIC_URL + 'img/mascarilla.jpg'}
-                    alt="..."
-                    width="200"
-                  />
-                  <br />
-                  <p className="fw-bolder">Limpieza facial, nariz y oidos</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Table dark className="mb-0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
         {/*<!-- Features section-->*/}
         <section className="py-2" id="features">
           <div className="container px-5 my-10">

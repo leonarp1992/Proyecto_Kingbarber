@@ -1,642 +1,146 @@
+import React, { useEffect, useState } from 'react';
+import DatePicker from "react-datepicker";
+import request from '../utils/request';
+import "react-datepicker/dist/react-datepicker.css";
+import { apiCreateReservas, apiGetBarbers, apiServicios } from '../utils/api';
+import { useSelector } from 'react-redux';
+
+
 function Reservar() {
+  const user = useSelector((state) => state.user);
+  const [date, setDate] = useState(new Date());
+  const [services, setServices] = useState([]);
+  const [service, setService] = useState('');
+  const [barbers, setBarbers] = useState([]);
+  const [barberShow, setBarberShow] = useState([]);
+  const [barber, setBarber] = useState('');
+
+
+  const obtenerServicios = async() => {
+    const response = await request({
+      link: apiServicios,
+      method: 'GET',
+    });
+    if (response.success) {
+      setServices(response.services)
+    } else {
+      alert(`${response.message}`);
+    }
+  }
+
+  const obtenerBarberos = async() => {
+    const response = await request({
+      link: apiGetBarbers,
+      method: 'GET',
+    });
+    if (response.success) {
+      setBarbers(response.users)
+    } else {
+      alert(`${response.message}`);
+    }
+  }
+  useEffect(function (){
+    obtenerServicios();
+    obtenerBarberos();
+  }, []);
+
+  useEffect(function(){
+    const barberos_by_Service = barbers.filter(function(barber){
+      if(barber.services.includes(service)){
+        return true;
+      }else{
+        return false;
+      }
+    });
+    setBarberShow(barberos_by_Service);
+  },[service]);
+  
+  const reservar = async() =>{
+        
+    if(!service || !barber || !date){
+        alert("Por favor diligencie todos los campos.")
+    }else{
+        const response = await request({link: apiCreateReservas, 
+            body:({
+            id_user: user._id,
+            id_service : service,
+            id_barbero: barber,
+            date: date.getTime()
+        }), method: 'POST'
+        })
+        console.log(response)
+        if(response.success){            
+            alert('Reserva creada exitosamente')
+            window.location.href='./reservasue'
+        }else{
+            alert(`${response.message}`)
+        }
+    }          
+};
+
   return (
     <div>
       <main className="flex-shrink-0">
         {/*<!-- Features section-->*/}
-        <section>
-          <div className="panel-body" style={{ margin: '5%' }}>
-            <div className="row">
-              <div className="col-lg-6 col-sm-6">
-                <div
-                  className="d-flex justify-content-center"
-                  style={{ color: 'white' }}
-                >
-                  <h3>Reservar</h3>
+        <section className="py-2" id="features">
+          <div className="container px-5 my-10">
+            <div className="py-2 text-center">
+              <div className="container px-5 my-5">
+                <div className="row gx-5 justify-content-center">
+                  <div className="col-lg-10 col-xl-7">
+                    <div className="text-center">
+                      <div className="contenedor">
+                        <h1>Reserva</h1>
+                        <h4>Servicio</h4>
+                        <select
+                          className="form-select"
+                          aria-label="select example"
+                          onChange={function(e){
+                            setService(e.target.value);
+                          }}
+                        >{services.map(function(value, index){
+                          return(
+                            <option key={index} value={value._id}>{value.name}</option>
+                          )
+                        })}
+                        </select>
+                        <br/>
+                        <h4>Barbero</h4>
+                        <select
+                          className="form-select"
+                          aria-label="select example"
+                          onChange={function(e){
+                            setBarber(e.target.value);
+                          }}
+                        >{barberShow.map(function(value, index){
+                          return(
+                            <option key={index} value={value._id}>{value.name}</option>
+                          )
+                        })}
+                        </select>
+                        <br/>
+                        <h4>Fecha</h4>
+                        <div>
+                        <DatePicker
+                          selected={date}
+                          onChange={setDate}
+                          showTimeSelect
+                          dateFormat="Pp"
+                          className='border border-1'
+                        /> 
+                        </div>
+                        <br/>
+                        <input
+                          type="button"
+                          value="Reservar"
+                          className="button"
+                          onClick={reservar}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <table
-                  className="table table-sm-responsive"
-                  style={{
-                    color: 'black',
-                    width: '100%',
-                    alignContent: 'center',
-                  }}
-                >
-                  <thead style={{ backgroundColor: '#C4C4C4' }}>
-                    <tr>
-                      <th>EMPLEADO</th>
-                      <th colspan="2" style={{ textAlign: 'center' }}>
-                        SERVICIOS
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody style={{ backgroundColor: 'white' }}>
-                    <tr>
-                      <td>Alejandra Negrete</td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Activos</option>
-                          <option>01</option>
-                          <option>02</option>
-                          <option>03</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Agregar</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Leonar Perez</td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Activos</option>
-                          <option>04</option>
-                          <option>05</option>
-                          <option>06</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Agregar</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Jorge Luis Curiel</td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Activos</option>
-                          <option>01</option>
-                          <option>03</option>
-                          <option>06</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Agregar</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                        </select>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
-              <div className="col-lg-6 col-sm-6">
-                <div
-                  className="d-flex justify-content-center"
-                  style={{ color: 'white' }}
-                >
-                  <h3>CREAR AGENDA</h3>
-                </div>
-                <table
-                  className="table table-sm-responsive"
-                  style={{
-                    color: 'white',
-                    width: '100%',
-                    alignContent: 'center',
-                  }}
-                >
-                  <thead>
-                    <tr>
-                      <th style={{ backgroundColor: '#C4C4C4' }}>SERVICIO</th>
-                      <td style={{ backgroundColor: 'white' }}>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Seleccione una opción</option>
-                          <option>04</option>
-                          <option>05</option>
-                          <option>06</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th style={{ backgroundColor: '#C4C4C4' }}>EMPLEADO</th>
-                      <td style={{ backgroundColor: 'white' }}>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Seleccione una opción</option>
-                          <option>Alejandra Negrete Urango</option>
-                          <option>Leonar Perez</option>
-                          <option>Jorge Luis Curiel</option>
-                          <option>Yorly Roxanna Catuche</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th style={{ backgroundColor: '#C4C4C4' }}>FECHA</th>
-                      <td style={{ backgroundColor: 'white' }}>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Seleccione una opción</option>
-                          <option>2021/12/04</option>
-                          <option>2021/12/05</option>
-                          <option>2021/12/06</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th style={{ backgroundColor: '#C4C4C4' }}>HORA</th>
-                      <td style={{ backgroundColor: 'white' }}>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Seleccione una opción</option>
-                          <option>08:00</option>
-                          <option>08:30</option>
-                          <option>09:00</option>
-                        </select>
-                      </td>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-            </div>
-            <div
-              className="d-flex justify-content-center"
-              style={{ color: 'white' }}
-            >
-              <h3>AGENDA DE SERVICIOS</h3>
-            </div>
-
-            <div
-              className="d-flex justify-content-lg-end"
-              style={{ alignItems: 'center' }}
-            >
-              <label
-                for="colFormLabelExample"
-                className="col-sm-1 col-form-label fw-bolder rounded-2 d-flex justify-content-center"
-                style={{ backgroundColor: '#C4C4C4' }}
-              >
-                Buscar
-              </label>
-              <div className="col-sm-2">
-                <input
-                  type="email"
-                  className="form-control form-control"
-                  id="colFormLabelExample"
-                  placeholder="Búsqueda"
-                />
-              </div>
-            </div>
-            <div className="justify-content-center">
-              <div
-                className="table-responsive"
-                style={{ justifyContent: 'center' }}
-              >
-                <table
-                  className="table table-responsive-xxl"
-                  style={{
-                    color: 'black',
-                    width: '100%',
-                    alignContent: 'center',
-                  }}
-                >
-                  <thead style={{ backgroundColor: '#C4C4C4' }}>
-                    <tr>
-                      <th>FECHA</th>
-                      <th>HORA</th>
-                      <th>SERVICIOS</th>
-                      <th>PRECIO</th>
-                      <th>EMPLEADO</th>
-                      <th>CLIENTE</th>
-                      <th>ESTADO</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody style={{ backgroundColor: 'white' }}>
-                    <tr>
-                      <td>2021/12/03</td>
-                      <td>19:00</td>
-                      <td>04 Corte de cabello</td>
-                      <td>$33.000</td>
-                      <td>Leonar Perez</td>
-                      <td>Emanuel Macias</td>
-                      <td>FINALIZADO</td>
-                      <td>
-                        <i className="bi bi-pencil-square"></i>{' '}
-                        <i className="bi bi-trash-fill"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2021/12/03</td>
-                      <td>19:00</td>
-                      <td>04 Corte de cabello</td>
-                      <td>$33.000</td>
-                      <td>Leonar Perez</td>
-                      <td>Emanuel</td>
-                      <td>FINALIZADO</td>
-                      <td>
-                        <i className="bi bi-pencil-square"></i>{' '}
-                        <i className="bi bi-trash-fill"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2021/12/03</td>
-                      <td>19:00</td>
-                      <td>04 Corte de cabello</td>
-                      <td>$33.000</td>
-                      <td>Leonar Perez</td>
-                      <td>Emanuel</td>
-                      <td>FINALIZADO</td>
-                      <td>
-                        <i className="bi bi-pencil-square"></i>{' '}
-                        <i className="bi bi-trash-fill"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2021/12/03</td>
-                      <td>19:00</td>
-                      <td>04 Corte de cabello</td>
-                      <td>$33.000</td>
-                      <td>Leonar Perez</td>
-                      <td>Emanuel</td>
-                      <td>FINALIZADO</td>
-                      <td>
-                        <i className="bi bi-pencil-square"></i>{' '}
-                        <i className="bi bi-trash-fill"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2021/12/03</td>
-                      <td>19:00</td>
-                      <td>04 Corte de cabello</td>
-                      <td>$33.000</td>
-                      <td>Leonar Perez</td>
-                      <td>Emanuel</td>
-                      <td>FINALIZADO</td>
-                      <td>
-                        <i className="bi bi-pencil-square"></i>{' '}
-                        <i className="bi bi-trash-fill"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2021/12/03</td>
-                      <td>19:00</td>
-                      <td>04 Corte de cabello</td>
-                      <td>$33.000</td>
-                      <td>Leonar Perez</td>
-                      <td>Emanuel</td>
-                      <td>FINALIZADO</td>
-                      <td>
-                        <i className="bi bi-pencil-square"></i>{' '}
-                        <i className="bi bi-trash-fill"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2021/12/03</td>
-                      <td>19:00</td>
-                      <td>04 Corte de cabello</td>
-                      <td>$33.000</td>
-                      <td>Leonar Perez</td>
-                      <td>Emanuel</td>
-                      <td>FINALIZADO</td>
-                      <td>
-                        <i className="bi bi-pencil-square"></i>{' '}
-                        <i className="bi bi-trash-fill"></i>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div
-              className="d-flex justify-content-center"
-              style={{ color: 'white' }}
-            >
-              <h3>REPORTES</h3>
-            </div>
-            <div
-              className="d-flex justify-content-lg-end"
-              style={{ alignItems: 'center' }}
-            >
-              <label for="" style={{ color: '#ffffff' }}>
-                USUARIOS ATENDIDOS
-              </label>
-              <div className="col-lg-2"></div>
-              <label
-                for="colFormLabelExample"
-                className="col-sm-1 col-form-label fw-bolder rounded-2 d-flex justify-content-center"
-                style={{ backgroundColor: '#C4C4C4' }}
-              >
-                Buscar
-              </label>
-              <div className="col-sm-2">
-                <input
-                  className="form-control form-control"
-                  id="colFormLabelExample"
-                  placeholder="Búsqueda"
-                />
-              </div>
-            </div>
-            <div className="table-responsive">
-              <table
-                className="table table-sm-responsive"
-                style={{
-                  color: 'black',
-                  width: '100%',
-                  alignContent: 'center',
-                }}
-              >
-                <thead style={{ backgroundColor: '#C4C4C4' }}>
-                  <tr>
-                    <th>FECHA</th>
-                    <th>HORA</th>
-                    <th>SERVICIO</th>
-                    <th>CLIENTE</th>
-                    <th>TOTAL</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody style={{ backgroundColor: 'white' }}>
-                  <tr>
-                    <td>2021/12/02</td>
-                    <td>17:30</td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Todos los servicios</option>
-                        <option>01 corte + lavado + peinado</option>
-                        <option>02 cabello rapado</option>
-                        <option>03 corte de cabello para niños</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Todos los clientes</option>
-                        <option>Victor Hugo Correa</option>
-                        <option>Johan Alexis Bedoya</option>
-                        <option>Robinson Losada</option>
-                      </select>
-                    </td>
-                    <td>$330.000</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021/12/03</td>
-                    <td>18:00</td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Todos los servicios</option>
-                        <option>01 corte + lavado + peinado</option>
-                        <option>02 cabello rapado</option>
-                        <option>03 corte de cabello para niños</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Todos los clientes</option>
-                        <option>Carlos Alexander Rodriguez</option>
-                        <option>Raul Rodriguez</option>
-                        <option>Camilo Andrés Guetio</option>
-                        <option>Juan Esteban Panameño</option>
-                      </select>
-                    </td>
-                    <td>$530.000</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div
-              className="d-flex justify-content-lg-end"
-              style={{ alignItems: 'center' }}
-            >
-              <label for="" style={{ color: '#ffffff' }}>
-                INGRESOS
-              </label>
-              <div className="col-lg-2"></div>
-              <label
-                for="colFormLabelExample"
-                className="col-sm-1 col-form-label fw-bolder rounded-2 d-flex justify-content-center"
-                style={{ backgroundColor: '#C4C4C4' }}
-              >
-                Buscar
-              </label>
-              <div className="col-sm-2">
-                <input
-                  className="form-control form-control"
-                  id="colFormLabelExample"
-                  placeholder="Búsqueda"
-                />
-              </div>
-            </div>
-            <div className="table-responsive">
-              <table
-                className="table"
-                style={{
-                  color: 'black',
-                  width: '100%',
-                  alignContent: 'center',
-                }}
-              >
-                <thead style={{ backgroundColor: '#C4C4C4' }}>
-                  <tr>
-                    <th>FECHA</th>
-                    <th>INGRESOS</th>
-                    <th></th>
-                    <th>SERVICIO</th>
-                    <th>INGRESOS</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody style={{ backgroundColor: 'white' }}>
-                  <tr>
-                    <td>2021/12/02</td>
-                    <td>$330.000</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Todos los servicios</option>
-                        <option>01 corte + lavado + peinado</option>
-                        <option>02 cabello rapado</option>
-                        <option>03 corte de cabello para niños</option>
-                      </select>
-                    </td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021/12/03</td>
-                    <td>$330.000</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Todos los servicios</option>
-                        <option>01 corte + lavado + peinado</option>
-                        <option>02 cabello rapado</option>
-                        <option>03 corte de cabello para niños</option>
-                      </select>
-                    </td>
-                    <td>$66.000</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div
-              className="d-flex justify-content-lg-end"
-              style={{ alignItems: 'center' }}
-            >
-              <label for="" style={{ color: '#ffffff' }}>
-                AGENDA DISPONIBLE
-              </label>
-              <div className="col-lg-2"></div>
-              <label
-                for="colFormLabelExample"
-                className="col-sm-1 col-form-label fw-bolder rounded-2 d-flex justify-content-center"
-                style={{ backgroundColor: '#C4C4C4' }}
-              >
-                Buscar
-              </label>
-              <div className="col-sm-2">
-                <input
-                  className="form-control form-control"
-                  id="colFormLabelExample"
-                  placeholder="Búsqueda"
-                />
-              </div>
-            </div>
-            <div className="table-responsive">
-              <table
-                className="table"
-                style={{
-                  color: 'black',
-                  width: '100%',
-                  alignContent: 'center',
-                }}
-              >
-                <thead style={{ backgroundColor: '#C4C4C4' }}>
-                  <tr>
-                    <th>FECHA</th>
-                    <th>HORA</th>
-                    <th>SERVICIOS</th>
-                    <th>EMPLEADO</th>
-                    <th>
-                      <i className="bi bi-printer"></i>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody style={{ backgroundColor: 'white' }}>
-                  <tr>
-                    <td>2021/12/04</td>
-                    <td>14:30</td>
-                    <td>01 corte + lavado + peinado</td>
-                    <td>Leonar Perez</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021/12/04</td>
-                    <td>15:00</td>
-                    <td>01 corte + lavado + peinado</td>
-                    <td>Leonar Perez</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021/12/04</td>
-                    <td>15:00</td>
-                    <td>01 corte + lavado + peinado</td>
-                    <td>Jorge Luis Curiel</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021/12/04</td>
-                    <td>15:30</td>
-                    <td>01 corte + lavado + peinado</td>
-                    <td>Leonar Perez</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021/12/04</td>
-                    <td>15:30</td>
-                    <td>01 corte + lavado + peinado</td>
-                    <td>Jorge Luis Curiel</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021/12/04</td>
-                    <td>16:00</td>
-                    <td>01 corte + lavado + peinado</td>
-                    <td>Leonar Perez</td>
-                    <td>
-                      <i className="bi bi-printer"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
         </section>
