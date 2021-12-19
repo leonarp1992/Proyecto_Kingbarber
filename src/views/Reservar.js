@@ -26,7 +26,7 @@ function Reservar() {
     } else {
       alert(`${response.message}`);
     }
-  }
+  };
 
   const obtenerBarberos = async() => {
     const response = await request({
