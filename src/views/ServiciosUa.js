@@ -1,5 +1,28 @@
 import {Link} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { apiServicios } from '../utils/api';
+import request from '../utils/request';
 function ServiciosUa() {
+
+  const [services, setServices] = useState([]);
+
+  const getServices = async() => {
+    const response = await request({
+      link: apiServicios,
+      method: 'GET',
+    });
+    if (response.success) {
+      setServices(response.services)
+    } else {
+      alert(`${response.message}`);
+    }
+  };
+  console.log(services);
+
+  useEffect(function(){
+    getServices();
+  },[]);
+
   return (
     <div>
       <main className="flex-shrink-0">
@@ -19,37 +42,25 @@ function ServiciosUa() {
               >
                 <thead style={{ backgroundColor: '#343a40', color: 'white' }}>
                   <tr>
-                    <th>ID</th>
                     <th>SERVICIO</th>
                     <th>DESCRIPCIÓN</th>
                     <th>DURACIÓN</th>
                     <th>PRECIO</th>
-                    <th></th>
+                    <th>ESTADO</th>
                   </tr>
                 </thead>
                 <tbody style={{ backgroundColor: '#C4C4C4' }}>
-                  <tr>
-                    <td>01</td>
-                    <td>Corte de cabello</td>
-                    <td>Corte + lavado + peinado</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>02</td>
-                    <td>Corte de cabello</td>
-                    <td>Cabello rapado</td>
-                    <td>33 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
+                  {services.map(function(item){
+                    return(
+                      <tr>
+                        <td>{item.name}</td>
+                        <td>{item.description}</td>
+                        <td>{item.duration}</td>
+                        <td>{item.price}</td>
+                        <td>{item.status}</td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
               <p>

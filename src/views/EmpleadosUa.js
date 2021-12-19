@@ -1,6 +1,31 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import request from '../utils/request';
+import {apiGetBarbers } from '../utils/api';
+
 
 function EmpleadosUa() {
+    
+    const [barbers, setBarbers] = useState([]);
+    const obtenerBarberos = async() => {
+      const response = await request({
+        link: apiGetBarbers,
+        method: 'GET',
+      });
+      if (response.success) {
+        setBarbers(response.users)
+      } else {
+        alert(`${response.message}`);
+      }
+    };
+
+    useEffect(function(){
+      obtenerBarberos();
+    },[]);
+
+    console.log(barbers)
+
+
   return (
     <div>
       <main className="flex-shrink-0">
@@ -21,86 +46,20 @@ function EmpleadosUa() {
                 <thead style={{ backgroundColor: '#343a40', color: 'white' }}>
                   <tr>
                     <th>NOMBRE</th>
-                    <th>APELLIDOS</th>
-                    <th>CARGO</th>
-                    <th colspan="2" style={{ textAlign: 'center' }}>
-                      FUNCIONES
-                    </th>
-                    <th>CELULAR</th>
-                    <th></th>
+                    <th>CORREO</th>
+                    <th>SERVICIOS</th>
                   </tr>
                 </thead>
                 <tbody style={{ backgroundColor: '#C4C4C4' }}>
-                  <tr>
-                    <td>CC: 2312344473</td>
-                    <td>Alejandra</td>
-                    <td>Negrete Urango</td>
-                    <td>Estilista</td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Activos</option>
-                        <option value="caja">Caja</option>
-                        <option>01</option>
-                        <option>03</option>
-                        <option>06</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Agregar</option>
-                        <option value="caja">Caja</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                      </select>
-                    </td>
-                    <td>3001002711</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>CC: 1018374629</td>
-                    <td>Leonar</td>
-                    <td>Perez</td>
-                    <td>Barbero</td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Activos</option>
-                        <option value="caja">Caja</option>
-                        <option>01</option>
-                        <option>03</option>
-                        <option>06</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select
-                        className="form-select"
-                        aria-label="select example"
-                      >
-                        <option>Agregar</option>
-                        <option value="caja">Caja</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                      </select>
-                    </td>
-                    <td>3125359893</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
+                  {barbers.map(function(i){
+                    return(
+                      <tr>
+                        <td>{i.name}</td>
+                        <td>{i.email}</td>
+                        <td>{i.id_user.services[0].name}</td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>

@@ -7,7 +7,7 @@ function CreateService() {
 
     const [service, setService] = useState({
         name: '',
-        descripcion:'',
+        description:'',
         price: '',
         duration: ''
     });
@@ -20,20 +20,20 @@ function CreateService() {
 
     const CreateServ = async() =>{
         
-        if(!service.name || !service.descripcion || !service.price || !service.duration){
+        if(!service.name || !service.description || !service.price || !service.duration){
             alert("Por favor diligencie todos los campos.")
         }else{
             const response = await request({link: apiCreateServices, 
                 body:({
                 name:service.name,
-                description : service.descripcion,
+                description : service.description,
                 price: service.price,
                 duration: service.duration
             }), method: 'POST'
             })
             if(response.success){
-                alert('Empleado creado exitosamente')
-                window.location.href='./empleadosua'
+                alert('Servicio creado exitosamente')
+                window.location.href='./serviciosua'
             }else{
                 alert(`${response.message}`)
             }
@@ -63,7 +63,7 @@ function CreateService() {
                         </div>
                         <div className="input-contenedor">
                           <input
-                            name="descripcion"
+                            name="description"
                             type="text"
                             placeholder="Descripción"
                             onChange={handleSave}
