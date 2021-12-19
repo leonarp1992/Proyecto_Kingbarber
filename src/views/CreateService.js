@@ -32,8 +32,6 @@ function CreateService() {
             }), method: 'POST'
             })
             if(response.success){
-                localStorage.setItem('token', response.token )
-                localStorage.setItem('user', response.user )
                 alert('Empleado creado exitosamente')
                 window.location.href='./empleadosua'
             }else{

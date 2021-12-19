@@ -15,10 +15,10 @@ function Reservar() {
   const [barberShow, setBarberShow] = useState([]);
   const [barber, setBarber] = useState('');
 
-
+  console.log(user)
   const obtenerServicios = async() => {
-    const response = await request({
-      link: apiServicios,
+    const response = await request(
+      {link: apiServicios,
       method: 'GET',
     });
     if (response.success) {
@@ -71,7 +71,7 @@ function Reservar() {
         console.log(response)
         if(response.success){            
             alert('Reserva creada exitosamente')
-            window.location.href='./reservasue'
+            window.location.href='./misreservas'
         }else{
             alert(`${response.message}`)
         }

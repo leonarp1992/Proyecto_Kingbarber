@@ -80,8 +80,8 @@ function Navbar() {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/calificacionesua" className="nav-link">
-                      Calificar Servicio
+                      <Link to="/misreservas" className="nav-link">
+                      Mis reservas
                       </Link>
                     </li>
                     </ul>

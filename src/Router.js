@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { saveUser } from './redux/actions/user.action';
 import CreateEmp from './views/CreateEmp';
 import CreateService from './views/CreateService';
+import MisReservas from './views/MisReservas';
 
 
 
@@ -52,6 +53,7 @@ const RouterContainer = () => {
           <Route path="/reservar" element={<Reservar />} />
           <Route path="/createemp" element={<CreateEmp />} />
           <Route path="/createservice" element={<CreateService />} />
+          <Route path="/misreservas" element={<MisReservas />} />
         </Routes>
       </Router>
     </React.StrictMode>
