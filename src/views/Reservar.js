@@ -14,6 +14,7 @@ function Reservar() {
   const [barbers, setBarbers] = useState([]);
   const [barberShow, setBarberShow] = useState([]);
   const [barber, setBarber] = useState('');
+  
 
   console.log(barbers);
   console.log(services);
@@ -35,7 +36,7 @@ function Reservar() {
   const obtenerBarberos = async() => {
     const response = await request({
       link: apiGetBarbers,
-      method: 'GET',
+      method: 'GET'
     });
     if (response.success) {
       setBarbers(response.users)

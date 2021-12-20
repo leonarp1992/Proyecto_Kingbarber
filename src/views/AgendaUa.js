@@ -56,10 +56,9 @@ function AgendaUa() {
                   </thead>
                   <tbody style={{ backgroundColor: '#C4C4C4' }}>
                     {reservas.map(function (servicio){
-                      const fecha = new Date(servicio.date)
                       return ( 
                         <tr>
-                          <td></td>
+                          <td>{new Date(servicio.date).toGMTString('es')}</td>
                           <td>{servicio.id_service.name}</td>
                           <td>{servicio.id_barbero.name}</td>
                           <td>{servicio.id_user.name}</td>

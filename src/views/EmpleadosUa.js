@@ -10,7 +10,8 @@ function EmpleadosUa() {
     const obtenerBarberos = async() => {
       const response = await request({
         link: apiGetBarbers,
-        method: 'GET',
+        body: {withService: true},
+        method: 'GET'
       });
       if (response.success) {
         setBarbers(response.users)
