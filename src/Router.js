@@ -44,22 +44,23 @@ const RouterContainer = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/quienessomos" element={<QuienesSomos />} />
-          <Route path="/servicios" element={<Servicios />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/agendaua" element={<AgendaUa />} />
           <Route path="/calificacionesua" element={<CalificacionesUa />} />
-          <Route path="/empleadosua" element={<EmpleadosUa />} />
-          <Route path="/serviciosua" element={<ServiciosUa />} />
-          <Route path="/reportes" element={<Reportes />} />
-          <Route path="/reservasui" element={<ReservasUi />} />
-          <Route path="/serviciosue" element={<ServiciosUe />} />
-          <Route path="/reservar" element={<Reservar />} />
           <Route path="/createemp" element={<CreateEmp />} />
-          <Route path="/createservice" element={<CreateService />} />
+          <Route path="/createservice" element={<CreateService />} />          
+          <Route path="/empleadosua" element={<EmpleadosUa />} />
+          {/* empleadosui */}
+          <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/misreservas" element={<MisReservas />} />
+          <Route path="/quienessomos" element={<QuienesSomos />} />
+          <Route path="/registro" element={<Registro />} />          
+          <Route path="/reportes" element={<Reportes />} />
+          <Route path="/reservar" element={<Reservar />} />
+          <Route path="/servicios" element={<Servicios />} />
+          <Route path="/serviciosua" element={<ServiciosUa />} />
+          <Route path="/serviciosue" element={<ServiciosUe />} />
+          <Route path="/reservasui" element={<ReservasUi />} />
         </Routes>
       </Router>
     </React.StrictMode>
