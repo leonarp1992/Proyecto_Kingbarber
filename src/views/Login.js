@@ -7,8 +7,8 @@ function Login() {
   const dispatch = useDispatch();
 
   const [user, setUser] = useState({
-    email: 'luisp@gmail.com',
-    password: '12345',
+    email: '',
+    password: '',
   });
 
   const handleChange = (e) => {

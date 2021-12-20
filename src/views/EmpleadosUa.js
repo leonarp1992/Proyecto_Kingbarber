@@ -56,7 +56,7 @@ function EmpleadosUa() {
                       <tr>
                         <td>{i.name}</td>
                         <td>{i.email}</td>
-                        <td>{i.id_user.services[0].name}</td>
+                        <td>{i.services?.length && i.services[0].name}</td>
                       </tr>
                     )
                   })}

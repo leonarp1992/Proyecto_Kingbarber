@@ -27,8 +27,8 @@ export const loginUser = ({ email, password }) => {
       localStorage.setItem('user', JSON.stringify(response.user));
       dispatch(saveUser(response.user));
       alert(`Bienvenido ${response.user.name}`);
-      if(response.rol === "user"){
-        window.location.href = './serviciosue';
+      if(response.user.rol === "user"){
+        window.location.href = './servicios';
       }else{
         window.location.href = './agendaua';
       }
