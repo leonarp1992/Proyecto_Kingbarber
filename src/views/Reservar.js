@@ -17,6 +17,8 @@ function Reservar() {
 
   console.log(barbers);
   console.log(services);
+  console.log(barberShow);
+  console.log(service)
 
   const obtenerServicios = async() => {
     const response = await request(
