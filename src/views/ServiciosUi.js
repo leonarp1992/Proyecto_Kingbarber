@@ -1,84 +1,37 @@
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import request from '../utils/request';
+import { apiReservas } from '../utils/api';
+import { useSelector } from 'react-redux';
+
 function ServiciosUi() {
+    
+  const user = useSelector((state) => state.user);
+
+  const [reservas, setReservas] = useState([]);
+
+  const obtenerReservas = async() =>{
+    const response = await request({
+      link: apiReservas,
+      body: {id_user: user._id},
+      method: 'GET',
+    });
+    if(response.success){
+      setReservas(response.reservas);
+    }else{
+      alert(`${response.message}`)
+    };
+  };
+
+  console.log(user);
+  console.log(reservas);
+
+  useEffect(function (){
+    obtenerReservas();
+  }, []);
+
   return (
     <div>
       <main className="flex-shrink-0">
-        {/*<!-- Navigation-->*/}
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container px-5">
-            <img
-              src={process.env.PUBLIC_URL + '/img/logo.png'}
-              alt=""
-              width="90"
-            />
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li className="nav-item dropdown">
-                  <Link
-                    to=""
-                    className="nav-link dropdown-toggle"
-                    id="navbarDropdownBlog"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Reportes
-                  </Link>
-                  <ul
-                    className="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownBlog"
-                  >
-                    <li>
-                      <Link to="" className="dropdown-item" href="blog-home.html">
-                        Crear Agenda
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="" className="dropdown-item" href="blog-post.html">
-                        Reportes
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/empleados">
-                    Empleados
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/reservasui">
-                    Reservas
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="serviciosui">
-                    Servicios
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Cerrar Sesión
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
         {/*<!-- Features section-->*/}
         <section>
           <div className="panel-body" style={{ margin: '5%' }}>
@@ -141,50 +94,7 @@ function ServiciosUi() {
                       <i className="bi bi-trash-fill"></i>
                     </td>
                   </tr>
-                  <tr>
-                    <td>04</td>
-                    <td>Corte de cabello</td>
-                    <td>Corte de cabello + peinado</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>05</td>
-                    <td>Diseño de barba</td>
-                    <td>Corte de cabello + barba + cejas</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>06</td>
-                    <td>Diseño de barba</td>
-                    <td>Barba + cejas</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>07</td>
-                    <td>Diseño de barba</td>
-                    <td>Tinte de barba</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
+
                 </tbody>
               </table>
             </div>

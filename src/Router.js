@@ -19,6 +19,7 @@ import { saveUser } from './redux/actions/user.action';
 import CreateEmp from './views/CreateEmp';
 import CreateService from './views/CreateService';
 import MisReservas from './views/MisReservas';
+import ServiciosUi from './views/ServiciosUi';
 
 
 
@@ -57,10 +58,11 @@ const RouterContainer = () => {
           <Route path="/registro" element={<Registro />} />          
           <Route path="/reportes" element={<Reportes />} />
           <Route path="/reservar" element={<Reservar />} />
+          <Route path="/reservasui" element={<ReservasUi />} />
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/serviciosua" element={<ServiciosUa />} />
           <Route path="/serviciosue" element={<ServiciosUe />} />
-          <Route path="/reservasui" element={<ReservasUi />} />
+          <Route path="/serviciosui" element={<ServiciosUi />} />
         </Routes>
       </Router>
     </React.StrictMode>

@@ -64,7 +64,7 @@ function MisReservas() {
                           <td>{reserva?.id_service.name}</td>
                           <td>{reserva?.id_service.description}</td>
                           <td>${reserva?.id_service.price  + " "}COP </td>
-                          <td>{reserva?.id_barbero.name}</td>
+                          <td>{reserva?.id_barbero.price}</td>
                           <td>{new Date(reserva?.date).toLocaleString()}</td>
                         </tr>
                       )

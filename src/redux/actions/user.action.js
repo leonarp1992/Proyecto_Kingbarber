@@ -29,8 +29,12 @@ export const loginUser = ({ email, password }) => {
       alert(`Bienvenido ${response.user.name}`);
       if(response.user.rol === "user"){
         window.location.href = './servicios';
-      }else{
+      }else if(response.user.rol === "barber"){
+        window.location.href = './serviciosui';
+      }else if(response.user.rol === "admin"){
         window.location.href = './agendaua';
+      }else{
+        alert('Autenticación incorrecta')
       }
     } else {
       alert(`${response.message}`);
