@@ -53,11 +53,11 @@ function ServiciosUa() {
                   {services.map(function(item){
                     return(
                       <tr>
-                        <td>{item.name}</td>
-                        <td>{item.description}</td>
-                        <td>{item.duration}</td>
-                        <td>{item.price}</td>
-                        <td>{item.status}</td>
+                        <td>{item?.name}</td>
+                        <td>{item?.description}</td>
+                        <td>{item?.duration}</td>
+                        <td>{item?.price}</td>
+                        <td>{item?.status}</td>
                       </tr>
                     )
                   })}

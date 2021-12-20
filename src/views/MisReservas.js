@@ -3,8 +3,6 @@ import request from '../utils/request';
 import { apiReservas } from '../utils/api';
 import { useSelector } from 'react-redux';
 
-
-
 function MisReservas() {
   
   const user = useSelector((state) => state.user);
@@ -54,20 +52,23 @@ function MisReservas() {
                     <tr>
                       <th>SERVICIO</th>
                       <th>DESCRIPCIÓN</th>
+                      <th>PRECIO</th>
                       <th>BARBERO</th>
                       <th>FECHA</th>
-                      <th>ESTADO</th>
-
                     </tr>
                   </thead>
                   <tbody style={{ backgroundColor: '#C4C4C4' }}>
-                    <tr>
-                      <td>01</td>
-                      <td>01</td>
-                      <td>Corte de cabello</td>
-                      <td>Corte + lavado + peinado</td>
-                      <td>45 minutos</td>
-                    </tr>
+                    {reservas.map(function(reserva){
+                      return(
+                        <tr>
+                          <td>{reserva?.id_service.name}</td>
+                          <td>{reserva?.id_service.description}</td>
+                          <td>${reserva?.id_service.price  + " "}COP </td>
+                          <td>{reserva?.id_barbero.name}</td>
+                          <td>{new Date(reserva?.date).toUTCString()}</td>
+                        </tr>
+                      )
+                    })}
                   </tbody>
                 </table>
               </div>

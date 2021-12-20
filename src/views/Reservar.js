@@ -13,7 +13,7 @@ function Reservar() {
   const [service, setService] = useState('');
   const [barbers, setBarbers] = useState([]);
   const [barberShow, setBarberShow] = useState([]);
-  const [barber, setBarber] = useState('');
+  const [barber, setBarber] = useState([]);
   
 
   console.log(barbers);

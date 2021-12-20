@@ -55,8 +55,8 @@ function EmpleadosUa() {
                   {barbers.map(function(i){
                     return(
                       <tr>
-                        <td>{i.name}</td>
-                        <td>{i.email}</td>
+                        <td>{i?.name}</td>
+                        <td>{i?.email}</td>
                         <td>{i.services?.length && i.services[0].name}</td>
                       </tr>
                     )
