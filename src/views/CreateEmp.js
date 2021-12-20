@@ -105,7 +105,9 @@ function CreateEmp() {
                           onChange={function(e){
                             setService(e.target.value);
                           }}
-                        >{services.map(function(value, index){
+                        >
+                        <option value={""}>Seleccione el Servicio a realizar</option>
+                          {services.map(function(value, index){
                           return(
                             <option key={index} value={value._id}>{value.name}</option>
                           )

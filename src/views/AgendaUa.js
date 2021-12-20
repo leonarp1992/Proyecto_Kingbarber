@@ -57,7 +57,7 @@ function AgendaUa() {
                     {reservas.map(function (servicio){
                       return ( 
                         <tr>
-                          <td>{new Date(servicio?.date).toGMTString('es')}</td>
+                          <td>{new Date(servicio?.date).toLocaleString()}</td>
                           <td>{servicio?.id_service.name}</td>
                           <td>{servicio?.id_barbero.name}</td>
                           <td>{servicio?.id_user.name}</td>

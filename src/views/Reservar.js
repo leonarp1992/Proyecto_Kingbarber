@@ -103,7 +103,9 @@ function Reservar() {
                           onChange={function(e){
                             setService(e.target.value);
                           }}
-                        >{services.map(function(value, index){
+                        >
+                        <option value={""}>Seleccione el Servicio</option>  
+                          {services.map(function(value, index){
                           return(
                             <option key={index} value={value._id}>{value.name}</option>
                           )
@@ -117,7 +119,9 @@ function Reservar() {
                           onChange={function(e){
                             setBarber(e.target.value);
                           }}
-                        >{barberShow.map(function(value, index){
+                        >
+                        <option value={""}>Seleccione el Barbero</option>
+                        {barberShow.map(function(value, index){
                           return(
                             <option key={index} value={value._id}>{value.name}</option>
                           )

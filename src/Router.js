@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Home from './views/Home';
 import QuienesSomos from './views/Quienessomos';
 import Servicios from './views/Servicios';
@@ -23,6 +23,8 @@ import MisReservas from './views/MisReservas';
 
 
 const RouterContainer = () => {
+
+  const [verify, setVerify] = useState(false);
   
   const dispatch = useDispatch();
 
@@ -31,8 +33,12 @@ const RouterContainer = () => {
     if (user) {
       dispatch(saveUser(JSON.parse(user)));
     }
+    setVerify(true);
   }, []);
-
+  
+  if(!verify){
+    return null;
+  }
   return (
     <React.StrictMode>
       <Router>
