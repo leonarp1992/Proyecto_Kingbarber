@@ -22,9 +22,6 @@ function MisReservas() {
     };
   };
 
-  console.log(user);
-  console.log(reservas);
-
   useEffect(function (){
     obtenerReservas();
   }, []);
@@ -64,7 +61,7 @@ function MisReservas() {
                           <td>{reserva?.id_service.name}</td>
                           <td>{reserva?.id_service.description}</td>
                           <td>${reserva?.id_service.price  + " "}COP </td>
-                          <td>{reserva?.id_barbero.price}</td>
+                          <td>{reserva?.id_barbero.name}</td>
                           <td>{new Date(reserva?.date).toLocaleString()}</td>
                         </tr>
                       )

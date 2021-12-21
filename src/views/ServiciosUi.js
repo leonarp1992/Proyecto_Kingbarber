@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import request from '../utils/request';
-import { apiReservas } from '../utils/api';
+import { apiReservasBarber } from '../utils/api';
 import { useSelector } from 'react-redux';
 
 function ServiciosUi() {
@@ -11,8 +11,8 @@ function ServiciosUi() {
 
   const obtenerReservas = async() =>{
     const response = await request({
-      link: apiReservas,
-      body: {id_user: user._id},
+      link: apiReservasBarber,
+      body: {id_barbero: user._id},
       method: 'GET',
     });
     if(response.success){
@@ -21,10 +21,7 @@ function ServiciosUi() {
       alert(`${response.message}`)
     };
   };
-
-  console.log(user);
-  console.log(reservas);
-
+  
   useEffect(function (){
     obtenerReservas();
   }, []);
@@ -35,12 +32,9 @@ function ServiciosUi() {
         {/*<!-- Features section-->*/}
         <section>
           <div className="panel-body" style={{ margin: '5%' }}>
-            <div
-              className="d-flex justify-content-center"
-              style={{ color: 'white' }}
-            >
-              <h3>SERVICIOS</h3>
-            </div>
+            <div className="d-flex justify-content-center fw-bolder">
+                <h3>Mis Servicios a Realizar</h3>
+              </div>
             <div className="table-responsive">
               <table
                 className="table"
@@ -52,88 +46,23 @@ function ServiciosUi() {
               >
                 <thead style={{ backgroundColor: '#C4C4C4' }}>
                   <tr>
-                    <th>ID</th>
                     <th>SERVICIO</th>
                     <th>DESCRIPCIÓN</th>
-                    <th>DURACIÓN</th>
-                    <th>PRECIO</th>
-                    <th></th>
+                    <th>FECHA</th>
+                    <th>CLIENTE</th>
                   </tr>
                 </thead>
                 <tbody style={{ backgroundColor: 'white' }}>
-                  <tr>
-                    <td>01</td>
-                    <td>Corte de cabello</td>
-                    <td>Corte + lavado + peinado</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>02</td>
-                    <td>Corte de cabello</td>
-                    <td>Cabello rapado</td>
-                    <td>33 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>03</td>
-                    <td>Corte de cabello</td>
-                    <td>Corte de cabello para niños</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-pencil-square"></i>{' '}
-                      <i className="bi bi-trash-fill"></i>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-            <div
-              className="d-flex justify-content-center"
-              style={{ color: 'white' }}
-            >
-              <h3>AGREGAR SERVICIO</h3>
-            </div>
-            <div className="table-responsive">
-              <table
-                className="table table-sm-responsive"
-                style={{
-                  color: 'black',
-                  width: '100%',
-                  alignContent: 'center',
-                }}
-              >
-                <thead style={{ backgroundColor: '#C4C4C4' }}>
-                  <tr>
-                    <th>ID</th>
-                    <th>SERVICIO</th>
-                    <th>DESCRIPCIÓN</th>
-                    <th>DURACIÓN</th>
-                    <th>PRECIO</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody style={{ backgroundColor: 'white' }}>
-                  <tr>
-                    <td>01</td>
-                    <td>Corte de cabello</td>
-                    <td>Corte + lavado + peinado</td>
-                    <td>45 minutos</td>
-                    <td>$33.000</td>
-                    <td>
-                      <i className="bi bi-check-square"></i>
-                    </td>
-                  </tr>
+                  {reservas.map(function(reserva){
+                    return(
+                      <tr>
+                        <td>{reserva.id_service.name}</td>
+                        <td>{reserva.id_service.description}</td>
+                        <td>{new Date(reserva.date).toLocaleString()}</td>
+                        <td>{reserva.id_user.name}</td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>

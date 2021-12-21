@@ -24,9 +24,6 @@ function EmpleadosUa() {
       obtenerBarberos();
     },[]);
 
-    console.log(barbers)
-
-
   return (
     <div>
       <main className="flex-shrink-0">

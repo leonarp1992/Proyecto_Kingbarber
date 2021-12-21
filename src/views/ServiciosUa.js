@@ -17,8 +17,7 @@ function ServiciosUa() {
       alert(`${response.message}`);
     }
   };
-  console.log(services);
-
+  
   useEffect(function(){
     getServices();
   },[]);
