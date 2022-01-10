@@ -5,6 +5,7 @@ export const apiUsers = baseUrl + '/users';
 export const apiCreateUsers = apiUsers + '/create';
 export const apiCreateBarbers = apiUsers + '/createbarber';
 export const apiGetBarbers = apiUsers + '/barbers';
+export const apiUpdateBarbers = apiUsers + '/updatebarbers';
 export const apiAuth = baseUrl + '/auth';
 export const apiReservas = baseUrl + '/reserva';
 export const apiReservasBarber = apiReservas + '/barber';

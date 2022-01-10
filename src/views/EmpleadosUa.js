@@ -7,6 +7,7 @@ import {apiGetBarbers } from '../utils/api';
 function EmpleadosUa() {
     
     const [barbers, setBarbers] = useState([]);
+
     const obtenerBarberos = async() => {
       const response = await request({
         link: apiGetBarbers,
@@ -57,7 +58,7 @@ function EmpleadosUa() {
                         <td>{i.services?.length && i.services[0].name}</td>
                       </tr>
                     )
-                  })}
+                  })}                
                 </tbody>
               </table>
             </div>
@@ -65,6 +66,12 @@ function EmpleadosUa() {
             ¿Crear empleado?
               <Link to="/createemp" className="link">
                 Crealo aquí
+              </Link>
+            </p>
+            <p>
+            ¿Editar empleado?
+              <Link to="/editempleados" className="link">
+                Editalo aquí
               </Link>
             </p>
           </div>

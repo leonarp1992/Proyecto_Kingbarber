@@ -20,6 +20,7 @@ import CreateEmp from './views/CreateEmp';
 import CreateService from './views/CreateService';
 import MisReservas from './views/MisReservas';
 import ServiciosUi from './views/ServiciosUi';
+import EditEmp from './views/EditEmp';
 
 
 
@@ -45,13 +46,13 @@ const RouterContainer = () => {
       <Router>
         <Navbar />
         <Routes>
+          <Route exact path="/" element={<Home />} />
           <Route path="/agendaua" element={<AgendaUa />} />
           <Route path="/calificacionesua" element={<CalificacionesUa />} />
           <Route path="/createemp" element={<CreateEmp />} />
           <Route path="/createservice" element={<CreateService />} />          
           <Route path="/empleadosua" element={<EmpleadosUa />} />
-          {/* empleadosui */}
-          <Route exact path="/" element={<Home />} />
+          <Route path="/editempleados" element={<EditEmp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/misreservas" element={<MisReservas />} />
           <Route path="/quienessomos" element={<QuienesSomos />} />
