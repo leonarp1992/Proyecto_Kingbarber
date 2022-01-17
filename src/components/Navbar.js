@@ -55,7 +55,7 @@ function Navbar() {
                       </li>
                       <li className="nav-item">
                         <Link to="/reservasui" className="nav-link">
-                        Reservas
+                        Editar Reservas
                         </Link>
                       </li>
                       <li className="nav-item">
