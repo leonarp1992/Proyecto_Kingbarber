@@ -45,10 +45,10 @@ function EditEmp() {
     }else{
         const response = await request({link: apiUpdateBarbers, 
             body:({
-            id_service : service,
+            id_service: [service],
             id_barber: barber,
         }), method: 'POST'
-        })
+        });
         if(response.success){            
             alert('Empleado actualizado exitosamente')
             window.location.href='./empleadosua'
@@ -83,7 +83,7 @@ return (
                           setBarber(e.target.value);
                         }}
                       >
-                      <option value={0}>Seleccione el Empleado</option>
+                      <option value={""}>Seleccione el Empleado</option>
                         {barbers.map(function(value, index){
                         return(
                           <option key={index} value={value._id}>{value.name}</option>
@@ -99,7 +99,7 @@ return (
                           setService(e.target.value);
                         }}
                       >
-                      <option value={0}>Seleccione el Servicio a realizar</option>
+                      <option value={""}>Seleccione el Servicio a realizar</option>
                         {services.map(function(value, index){
                         return(
                           <option key={index} value={value._id}>{value.name}</option>
