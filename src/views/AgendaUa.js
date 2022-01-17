@@ -85,6 +85,7 @@ function AgendaUa() {
                       <th>SERVICIO</th>
                       <th>EMPLEADO</th>
                       <th>CLIENTE</th>
+                      <th>ESTADO</th>
                     </tr>
                   </thead>
                   <tbody style={{ backgroundColor: '#C4C4C4' }}>
@@ -95,6 +96,7 @@ function AgendaUa() {
                           <td>{servicio?.id_service.name}</td>
                           <td>{servicio?.id_barbero.name}</td>
                           <td>{servicio?.id_user.name}</td>
+                          <td>{servicio?.estado}</td>
                         </tr>
                       );
                     })}
@@ -109,10 +111,10 @@ function AgendaUa() {
             <div className="d-flex justify-content-center fw-bolder">
               <h3>Agenda Por Empleado</h3>
             </div>
-            <div className='col-lg-10 col-lg-10' style={{margin:'1%', display:'flex' }}>
+            <div className='col-lg-10 col-lg-8' style={{margin:'1%', display:'flex' }}>
             <select
               className="form-select"
-              style={{display: 'inline-block', margin:'1%', width:'500px'}}
+              style={{display: 'inline-block', margin:'1%', width:'400px'}}
               aria-label="select example"
               onChange={function(e){
                 setBarber(e.target.value);
@@ -152,6 +154,7 @@ function AgendaUa() {
                       <th>SERVICIO</th>
                       <th>EMPLEADO</th>
                       <th>CLIENTE</th>
+                      <th>ESTADO</th>
                     </tr>
                   </thead>
                   <tbody style={{ backgroundColor: '#C4C4C4' }}>
@@ -162,6 +165,7 @@ function AgendaUa() {
                           <td>{servicio?.id_service.name}</td>
                           <td>{servicio?.id_barbero.name}</td>
                           <td>{servicio?.id_user.name}</td>
+                          <td>{servicio?.estado}</td>
                         </tr>
                       );
                     })}
@@ -172,35 +176,6 @@ function AgendaUa() {
           </div>
         </section>
       </main>
-      {/*<!-- Footer-->*/}
-      <footer className="bg-dark py-4 mt-auto">
-        <div className="container px-5">
-          <div className="row align-items-center justify-content-between flex-column flex-sm-row">
-            <div className="col-auto">
-              <div className="small m-0 text-white">
-                Copyright 2021 &copy; MisionTIC 2022
-              </div>
-            </div>
-            <div className="col-auto">
-              <a className="link-light small" href="#!">
-                <i className="bi bi-instagram"> @barberking</i>
-              </a>
-              <span className="text-white mx-1">&middot;</span>
-              <a className="link-light small" href="#!">
-                <i className="bi bi-facebook"> BarbeKing</i>
-              </a>
-              <span className="text-white mx-1">&middot;</span>
-              <a className="link-light small" href="#!">
-                <i className="bi bi-whatsapp"> 3009000800</i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
-      {/*<!-- Bootstrap core JS-->*/}
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-      {/*<!-- Core theme JS-->*/}
-      <script src={process.env.PUBLIC_URL + '/js/scripts.js'}></script>
     </div>
   );
 }

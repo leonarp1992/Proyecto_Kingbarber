@@ -21,6 +21,7 @@ import CreateService from './views/CreateService';
 import MisReservas from './views/MisReservas';
 import ServiciosUi from './views/ServiciosUi';
 import EditEmp from './views/EditEmp';
+import Footer from './components/Footer';
 
 
 
@@ -65,6 +66,7 @@ const RouterContainer = () => {
           <Route path="/serviciosue" element={<ServiciosUe />} />
           <Route path="/serviciosui" element={<ServiciosUi />} />
         </Routes>
+        <Footer />
       </Router>
     </React.StrictMode>
   );
