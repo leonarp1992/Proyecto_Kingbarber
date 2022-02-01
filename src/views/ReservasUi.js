@@ -1,4 +1,42 @@
+import React, { useEffect, useState } from 'react';
+import request from '../utils/request';
+import { apiReservas, apiEditReservas} from '../utils/api';
+
 function ReservasUi() {
+  
+  const [reservas, setReservas] = useState([]); 
+  const [state, setState] = useState(''); 
+
+  const obtenerReservas = async() =>{
+    const response = await request({
+      link: apiReservas,
+      method: 'GET',
+    });
+    if(response.success){
+      setReservas(response.reservas);
+    }else{
+      alert(`${response.message}`)
+    };
+  };
+
+  const guardar = async(idReserva) => {
+    const response = await request({link: apiEditReservas, 
+          body:({
+          id_reserva: idReserva,
+          stated: state
+      }), method: 'POST'
+      })
+      if(response.success){            
+          alert(`${response.message}`)
+      }else{
+          alert(`${response.message}`)
+      }
+  }
+
+  useEffect(function (){
+    obtenerReservas();
+  }, []);
+
   return (
     <div>
       <main className="flex-shrink-0">
@@ -7,104 +45,52 @@ function ReservasUi() {
           <div className="" style={{ margin: '5%' }}>
             <div className="row">
               <div className="col-lg-6 col-xl">
-                <div
-                  className="d-flex justify-content-center"
-                  style={{ color: 'white' }}
-                >
-                  <h3>PERSONAL BARBERÍA</h3>
-                </div>
                 <table
                   className="table table-sm-responsive"
                   style={{
                     color: 'black',
                     width: '100%',
                     alignContent: 'center',
+                    border: 'solid 1px',
                   }}
                 >
                   <thead style={{ backgroundColor: '#C4C4C4' }}>
                     <tr>
-                      <th>EMPLEADO</th>
-                      <th colspan="2" style={{ textAlign: 'center' }}>
-                        SERVICIOS
-                      </th>
+                      <th>USUARIO</th>
+                      <th>SERVICIO</th>
+                      <th>FECHA</th>
+                      <th>ESTADO</th>
+                      <th>ACCIÓN</th>
                     </tr>
-                  </thead>
+                  </thead>                  
                   <tbody style={{ backgroundColor: 'white' }}>
-                    <tr>
-                      <td>Alejandra Negrete</td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Activos</option>
-                          <option>01</option>
-                          <option>02</option>
-                          <option>03</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Agregar</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Leonar Perez</td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Activos</option>
-                          <option>04</option>
-                          <option>05</option>
-                          <option>06</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Agregar</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Jorge Luis Curiel</td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Activos</option>
-                          <option>01</option>
-                          <option>03</option>
-                          <option>06</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select"
-                          aria-label="select example"
-                        >
-                          <option>Agregar</option>
-                          <option value="04">04</option>
-                          <option value="05">05</option>
-                          <option value="06">06</option>
-                        </select>
-                      </td>
-                    </tr>
+                      {
+                        reservas.map(function(reserva){
+                          return(
+                            <tr>
+                              <td>{reserva.id_user.name}</td>
+                              <td>{reserva.id_service.name}</td>
+                              <td>{new Date(reserva.date).toLocaleString()}</td>
+                              <td>
+                                <select
+                                  className="form-select"
+                                  aria-label="select example"
+                                  onChange={function(e){
+                                    setState(e.target.value);
+                                  }}
+                                >
+                                  <option value={""}>{reserva.estado}</option>
+                                  <option value={'Completado'}>Completado</option>
+                                  <option value={'Cancelado'}>Cancelado</option>
+                                </select>
+                              </td>
+                              <td>                        
+                              <button onClick={()=> guardar(reserva._id)}>GUARDAR</button>
+                              </td>
+                            </tr>
+                          )
+                        })
+                      }
                   </tbody>
                 </table>
               </div>

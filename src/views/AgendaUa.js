@@ -40,19 +40,22 @@ function AgendaUa() {
   }, []);
 
   const buscar = async() =>{
-    if(barber){
+    if(!barber){
+      alert('Seleccione el barbero');      
+    }else{
+      console.log(barber)
       const response = await request({
         link: apiReservasBarber,
         body: {id_barbero: barber},
         method: 'GET',
       });
+      console.log(response);
       if(response.success){
         setReservasByBarber(response.reservas);
       }else{
-        alert(`${response.message}`)
+        alert('El barbero no tiene agenda programada')
+        setReservasByBarber([]);
       };
-    }else{
-      alert('Seleccione el barbero')
     }
   };
 

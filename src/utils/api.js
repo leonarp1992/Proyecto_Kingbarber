@@ -10,3 +10,4 @@ export const apiAuth = baseUrl + '/auth';
 export const apiReservas = baseUrl + '/reserva';
 export const apiReservasBarber = apiReservas + '/barber';
 export const apiCreateReservas = apiReservas + '/create'; 
+export const apiEditReservas = apiReservas + '/edit';
