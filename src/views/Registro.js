@@ -25,7 +25,7 @@ function Registro() {
         }else{
             const response = await request({link: apiCreateUsers, 
                 body:({
-                name:user.username,
+                name: user.username,
                 email : user.email,
                 password: user.password
             }), method: 'POST'

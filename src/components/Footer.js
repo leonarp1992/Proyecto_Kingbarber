@@ -7,20 +7,20 @@ function Footer(){
                     <div className="row align-items-center justify-content-between flex-column flex-sm-row">
                       <div className="col-auto">
                         <div className="small m-0 text-white">
-                          Copyright 2021 &copy; MisionTIC 2022
+                          Copyright 2021 &copy; Leonp2022
                         </div>
                       </div>
                       <div className="col-auto">
                         <a className="link-light small" href="#!">
-                          <i className="bi bi-instagram"> @barberking</i>
+                          <i className="bi bi-instagram"> @leonarPerez</i>
                         </a>
                         <span className="text-white mx-1">&middot;</span>
                         <a className="link-light small" href="#!">
-                          <i className="bi bi-facebook"> BarbeKing</i>
+                          <i className="bi bi-facebook"> @LeonarPérez</i>
                         </a>
                         <span className="text-white mx-1">&middot;</span>
-                        <a className="link-light small" href="#!">
-                          <i className="bi bi-whatsapp"> 3009000800</i>
+                        <a className="link-light small" href="https://wa.me/+573017444361">
+                          <i className="bi bi-whatsapp"> WhatsApp</i>
                         </a>
                       </div>
                     </div>
